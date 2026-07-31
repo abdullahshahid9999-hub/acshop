@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f2236"/><stop offset="100%" stop-color="#0A1628"/></linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#162d45"/><stop offset="100%" stop-color="#1a3550"/></linearGradient>
+    <linearGradient id="ac" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c0d8f0"/><stop offset="100%" stop-color="#a0c0e0"/></linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4956a"/><stop offset="100%" stop-color="#c07040"/></linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- Floor -->
+  <rect x="0" y="480" width="800" height="120" fill="#0d1e30"/>
+  <line x1="0" y1="480" x2="800" y2="480" stroke="#C8A96E" stroke-width="2" opacity="0.3"/>
+  <!-- Wall panel -->
+  <rect x="80" y="60" width="640" height="340" rx="8" fill="url(#wall)" opacity="0.6"/>
+  <!-- AC Unit on wall -->
+  <rect x="180" y="90" width="280" height="90" rx="10" fill="url(#ac)" stroke="#8ab8d8" stroke-width="1.5"/>
+  <rect x="190" y="100" width="260" height="12" rx="3" fill="#78a8cc"/>
+  <!-- AC vents -->
+  <line x1="190" y1="125" x2="450" y2="125" stroke="#6090b0" stroke-width="1.5" opacity="0.7"/>
+  <line x1="190" y1="133" x2="450" y2="133" stroke="#6090b0" stroke-width="1.5" opacity="0.7"/>
+  <line x1="190" y1="141" x2="450" y2="141" stroke="#6090b0" stroke-width="1.5" opacity="0.7"/>
+  <line x1="190" y1="149" x2="450" y2="149" stroke="#6090b0" stroke-width="1.5" opacity="0.7"/>
+  <line x1="190" y1="157" x2="450" y2="157" stroke="#6090b0" stroke-width="1.5" opacity="0.7"/>
+  <!-- AC indicator light -->
+  <circle cx="440" cy="108" r="5" fill="#00e676" opacity="0.9"/>
+  <circle cx="455" cy="108" r="5" fill="#C8A96E" opacity="0.7"/>
+  <!-- Cool air waves -->
+  <path d="M190 175 Q220 165 250 175 Q280 185 310 175" stroke="#a0d8f0" stroke-width="2" fill="none" opacity="0.5"/>
+  <path d="M210 190 Q240 180 270 190 Q300 200 330 190" stroke="#a0d8f0" stroke-width="1.5" fill="none" opacity="0.35"/>
+  <!-- Ladder -->
+  <rect x="560" y="220" width="12" height="260" rx="3" fill="#8B6914"/>
+  <rect x="620" y="220" width="12" height="260" rx="3" fill="#8B6914"/>
+  <rect x="560" y="255" width="72" height="8" rx="2" fill="#a07820"/>
+  <rect x="560" y="305" width="72" height="8" rx="2" fill="#a07820"/>
+  <rect x="560" y="355" width="72" height="8" rx="2" fill="#a07820"/>
+  <rect x="560" y="405" width="72" height="8" rx="2" fill="#a07820"/>
+  <rect x="560" y="455" width="72" height="8" rx="2" fill="#a07820"/>
+  <!-- Technician body -->
+  <!-- Legs -->
+  <rect x="490" y="360" width="22" height="120" rx="8" fill="#1a3a5c"/>
+  <rect x="520" y="360" width="22" height="120" rx="8" fill="#1a3a5c"/>
+  <!-- Boots -->
+  <ellipse cx="501" cy="480" rx="16" ry="10" fill="#0a1628"/>
+  <ellipse cx="531" cy="480" rx="16" ry="10" fill="#0a1628"/>
+  <!-- Torso / uniform -->
+  <rect x="475" y="240" width="82" height="130" rx="12" fill="#2C5F8A"/>
+  <!-- Uniform pocket -->
+  <rect x="490" y="265" width="25" height="20" rx="3" fill="#1a4a70" stroke="#C8A96E" stroke-width="1"/>
+  <!-- Logo on uniform -->
+  <text x="497" y="279" font-size="9" fill="#C8A96E" font-family="Arial" font-weight="bold">NT</text>
+  <!-- Belt -->
+  <rect x="475" y="355" width="82" height="12" rx="3" fill="#0d1e30"/>
+  <rect x="507" y="356" width="14" height="10" rx="2" fill="#C8A96E"/>
+  <!-- Left arm (raised, working on AC) -->
+  <path d="M476 260 Q440 220 420 155" stroke="#2C5F8A" stroke-width="26" stroke-linecap="round" fill="none"/>
+  <!-- Left hand -->
+  <circle cx="418" cy="150" r="14" fill="url(#skin)"/>
+  <!-- Tool / screwdriver in hand -->
+  <rect x="405" y="90" width="8" height="60" rx="3" fill="#C8A96E" transform="rotate(15 405 90)"/>
+  <rect x="407" y="140" width="5" height="15" rx="1" fill="#888" transform="rotate(15 407 140)"/>
+  <!-- Right arm -->
+  <path d="M556 270 Q580 290 570 330" stroke="#2C5F8A" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <!-- Right hand on ladder -->
+  <circle cx="569" cy="335" r="13" fill="url(#skin)"/>
+  <!-- Head -->
+  <circle cx="516" cy="215" r="38" fill="url(#skin)"/>
+  <!-- Hair -->
+  <ellipse cx="516" cy="185" rx="38" ry="18" fill="#1a0a00"/>
+  <!-- Face -->
+  <ellipse cx="504" cy="218" rx="5" ry="6" fill="#0d0000" opacity="0.7"/>
+  <ellipse cx="528" cy="218" rx="5" ry="6" fill="#0d0000" opacity="0.7"/>
+  <path d="M504 232 Q516 242 528 232" stroke="#7a3a1a" stroke-width="2.5" fill="none"/>
+  <!-- Hard hat -->
+  <ellipse cx="516" cy="183" rx="44" ry="20" fill="#C8A96E"/>
+  <rect x="472" y="183" width="88" height="10" rx="2" fill="#b89040"/>
+  <!-- Tool belt bag -->
+  <rect x="538" y="330" width="24" height="30" rx="4" fill="#0d1e30" stroke="#C8A96E" stroke-width="1"/>
+  <!-- Pipes/conduit on wall -->
+  <rect x="455" y="175" width="14" height="80" rx="4" fill="#8ab8d8" opacity="0.6"/>
+  <rect x="455" y="255" width="14" height="14" rx="4" fill="#C8A96E" opacity="0.8"/>
+  <!-- Label -->
+  <rect x="0" y="540" width="800" height="60" fill="rgba(0,0,0,0.4)"/>
+  <text x="400" y="576" font-size="20" fill="#C8A96E" font-family="Arial" font-weight="bold" text-anchor="middle">تركيب المكيفات الاحترافي</text>
+</svg>

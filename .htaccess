@@ -1,0 +1,53 @@
+# ── HTTPS ENFORCE ──
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── SECURITY HEADERS ──
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set Content-Security-Policy "default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+  Header unset X-Powered-By
+  Header unset Server
+</IfModule>
+
+# ── ANTI HOTLINKING ──
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https://(www\.)?noumanatabreed\.com [NC]
+RewriteRule \.(svg|jpg|jpeg|png|webp|gif)$ - [F,NC]
+
+# ── BLOCK BAD BOTS ──
+RewriteCond %{HTTP_USER_AGENT} (libwww-perl|wget|python|nikto|sqlmap|curl|scan|zgrab) [NC]
+RewriteRule .* - [F,L]
+
+# ── BLOCK SENSITIVE FILES ──
+<FilesMatch "(^\.htaccess|^\.env|\.git|\.log|composer\.(json|lock)|package(-lock)?\.json)">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# ── DISABLE DIRECTORY LISTING ──
+Options -Indexes
+
+# ── COMPRESSION ──
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>
+
+# ── CACHE CONTROL ──
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# ── BLOCK COMMON ATTACK PATTERNS ──
+RewriteCond %{QUERY_STRING} (union.*select|insert.*into|drop.*table|script.*alert) [NC]
+RewriteRule .* - [F,L]

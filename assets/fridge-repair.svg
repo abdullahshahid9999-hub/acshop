@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0e1f31"/><stop offset="100%" stop-color="#090f1a"/></linearGradient>
+    <linearGradient id="fridge" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c8d8e8"/><stop offset="100%" stop-color="#ddeaf8"/></linearGradient>
+    <linearGradient id="skin4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4956a"/><stop offset="100%" stop-color="#b87040"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg4)"/>
+  <rect x="0" y="488" width="800" height="112" fill="#060c14"/>
+  <!-- Refrigerator body -->
+  <rect x="200" y="60" width="220" height="420" rx="12" fill="url(#fridge)" stroke="#a0b8cc" stroke-width="2"/>
+  <!-- Freezer section -->
+  <rect x="205" y="65" width="210" height="130" rx="8" fill="#c0d0e0"/>
+  <line x1="200" y1="200" x2="420" y2="200" stroke="#8a9aaa" stroke-width="2.5"/>
+  <!-- Fridge door handle -->
+  <rect x="388" y="90" width="10" height="60" rx="5" fill="#8a9aaa"/>
+  <rect x="388" y="240" width="10" height="80" rx="5" fill="#8a9aaa"/>
+  <!-- Door open (repair) -->
+  <rect x="420" y="200" width="200" height="250" rx="8" fill="#d0e0f0" stroke="#a0b8cc" stroke-width="1.5" transform="rotate(-35 420 200)"/>
+  <!-- Fridge interior visible -->
+  <rect x="205" y="205" width="210" height="270" rx="4" fill="#e8f4fc"/>
+  <!-- Shelves -->
+  <rect x="208" y="255" width="204" height="4" rx="2" fill="#a0b8cc"/>
+  <rect x="208" y="320" width="204" height="4" rx="2" fill="#a0b8cc"/>
+  <rect x="208" y="385" width="204" height="4" rx="2" fill="#a0b8cc"/>
+  <!-- Food items -->
+  <rect x="215" y="260" width="30" height="50" rx="4" fill="#e8c040"/>
+  <rect x="252" y="268" width="22" height="42" rx="3" fill="#c04040"/>
+  <circle cx="310" cy="280" r="16" fill="#40a040"/>
+  <!-- Compressor visible at back bottom -->
+  <rect x="210" y="440" width="206" height="38" rx="4" fill="#b0c4d8"/>
+  <circle cx="240" cy="459" r="14" fill="#808090" stroke="#606070" stroke-width="2"/>
+  <circle cx="240" cy="459" r="7" fill="#505060"/>
+  <!-- Technician crouching -->
+  <!-- Legs crouching -->
+  <path d="M520 420 Q560 380 580 420 L575 470 Q545 490 515 470 Z" fill="#1a3a5c"/>
+  <!-- Torso leaning forward -->
+  <rect x="490" y="290" width="85" height="140" rx="12" fill="#2C5F8A" transform="rotate(-10 490 290)"/>
+  <rect x="500" y="312" width="28" height="22" rx="3" fill="#1a4a70" stroke="#C8A96E" stroke-width="1" transform="rotate(-10 500 312)"/>
+  <text x="504" y="327" font-size="10" fill="#C8A96E" font-family="Arial" font-weight="bold">NT</text>
+  <!-- Arms reaching into fridge -->
+  <path d="M492 310 Q450 320 390 350" stroke="#2C5F8A" stroke-width="26" stroke-linecap="round" fill="none"/>
+  <circle cx="385" cy="352" r="13" fill="url(#skin4)"/>
+  <path d="M573 310 Q600 300 590 280" stroke="#2C5F8A" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <circle cx="590" cy="276" r="12" fill="url(#skin4)"/>
+  <!-- Torch/flashlight in right hand -->
+  <rect x="590" y="248" width="10" height="32" rx="3" fill="#888"/>
+  <ellipse cx="595" cy="248" rx="7" ry="5" fill="#ffe080" opacity="0.9"/>
+  <!-- Light beam from torch -->
+  <path d="M595 248 Q500 300 400 340" stroke="#ffe080" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <!-- Head -->
+  <circle cx="528" cy="268" r="34" fill="url(#skin4)"/>
+  <ellipse cx="528" cy="244" rx="34" ry="15" fill="#1a0800"/>
+  <ellipse cx="516" cy="272" rx="5" ry="5.5" fill="#0d0000" opacity="0.7"/>
+  <ellipse cx="540" cy="272" rx="5" ry="5.5" fill="#0d0000" opacity="0.7"/>
+  <path d="M518 284 Q528 291 538 284" stroke="#7a3a1a" stroke-width="2" fill="none"/>
+  <!-- Cap -->
+  <ellipse cx="528" cy="242" rx="40" ry="17" fill="#C8A96E"/>
+  <rect x="488" y="242" width="80" height="9" rx="2" fill="#b89040"/>
+  <!-- Label -->
+  <rect x="0" y="540" width="800" height="60" fill="rgba(0,0,0,0.45)"/>
+  <text x="400" y="576" font-size="20" fill="#C8A96E" font-family="Arial" font-weight="bold" text-anchor="middle">إصلاح الثلاجات</text>
+</svg>

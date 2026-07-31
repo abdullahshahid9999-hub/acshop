@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d1e30"/><stop offset="100%" stop-color="#091525"/></linearGradient>
+    <linearGradient id="skin2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4956a"/><stop offset="100%" stop-color="#c07040"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg2)"/>
+  <rect x="0" y="480" width="800" height="120" fill="#080f18"/>
+  <!-- AC unit on floor/stand -->
+  <rect x="260" y="280" width="280" height="200" rx="12" fill="#1a3550" stroke="#2a4a6a" stroke-width="2"/>
+  <rect x="270" y="290" width="260" height="30" rx="6" fill="#243d55"/>
+  <!-- Control panel -->
+  <circle cx="490" cy="305" r="8" fill="#00e676" opacity="0.8"/>
+  <circle cx="510" cy="305" r="8" fill="#C8A96E" opacity="0.7"/>
+  <rect x="280" y="305" width="180" height="8" rx="3" fill="#1a2f45"/>
+  <!-- AC vents -->
+  <rect x="270" y="335" width="260" height="130" rx="4" fill="#162a3f"/>
+  <line x1="280" y1="352" x2="520" y2="352" stroke="#2a4a6a" stroke-width="2"/>
+  <line x1="280" y1="366" x2="520" y2="366" stroke="#2a4a6a" stroke-width="2"/>
+  <line x1="280" y1="380" x2="520" y2="380" stroke="#2a4a6a" stroke-width="2"/>
+  <line x1="280" y1="394" x2="520" y2="394" stroke="#2a4a6a" stroke-width="2"/>
+  <line x1="280" y1="408" x2="520" y2="408" stroke="#2a4a6a" stroke-width="2"/>
+  <line x1="280" y1="422" x2="520" y2="422" stroke="#2a4a6a" stroke-width="2"/>
+  <!-- Open panel (being repaired) -->
+  <rect x="310" y="290" width="120" height="40" rx="4" fill="#0d1e30" stroke="#C8A96E" stroke-width="1.5"/>
+  <!-- Circuit board visible -->
+  <rect x="318" y="296" width="104" height="28" rx="2" fill="#0a2010"/>
+  <line x1="325" y1="300" x2="415" y2="300" stroke="#00e676" stroke-width="1" opacity="0.6"/>
+  <line x1="325" y1="306" x2="415" y2="306" stroke="#00e676" stroke-width="1" opacity="0.6"/>
+  <rect x="340" y="298" width="8" height="10" rx="1" fill="#C8A96E"/>
+  <rect x="360" y="298" width="6" height="12" rx="1" fill="#4080c0"/>
+  <rect x="380" y="300" width="10" height="8" rx="1" fill="#c04040"/>
+  <!-- Technician kneeling -->
+  <!-- Legs bent (kneeling) -->
+  <path d="M420 440 Q450 420 480 450 L480 480 Q450 490 420 480 Z" fill="#1a3a5c"/>
+  <path d="M340 440 Q310 420 280 450 L280 480 Q310 490 340 480 Z" fill="#1a3a5c"/>
+  <!-- Torso -->
+  <rect x="330" y="300" width="140" height="145" rx="14" fill="#2C5F8A"/>
+  <!-- Pocket + logo -->
+  <rect x="345" y="325" width="30" height="22" rx="3" fill="#1a4a70" stroke="#C8A96E" stroke-width="1"/>
+  <text x="350" y="340" font-size="10" fill="#C8A96E" font-family="Arial" font-weight="bold">NT</text>
+  <!-- Head -->
+  <circle cx="400" cy="272" r="36" fill="url(#skin2)"/>
+  <ellipse cx="400" cy="245" rx="36" ry="16" fill="#1a0a00"/>
+  <!-- Eyes focused downward -->
+  <ellipse cx="388" cy="276" rx="5" ry="5" fill="#0d0000" opacity="0.75"/>
+  <ellipse cx="412" cy="276" rx="5" ry="5" fill="#0d0000" opacity="0.75"/>
+  <!-- Focused brow -->
+  <path d="M382 268 Q388 264 394 268" stroke="#4a2a0a" stroke-width="2" fill="none"/>
+  <path d="M406 268 Q412 264 418 268" stroke="#4a2a0a" stroke-width="2" fill="none"/>
+  <path d="M390 285 Q400 291 410 285" stroke="#7a3a1a" stroke-width="2" fill="none"/>
+  <!-- Cap -->
+  <ellipse cx="400" cy="243" rx="40" ry="16" fill="#C8A96E"/>
+  <rect x="360" y="243" width="80" height="8" rx="2" fill="#b89040"/>
+  <rect x="355" y="243" width="14" height="8" rx="2" fill="#b89040"/>
+  <!-- Left arm reaching into AC -->
+  <path d="M332 330 Q290 330 320 310" stroke="#2C5F8A" stroke-width="26" stroke-linecap="round" fill="none"/>
+  <circle cx="322" cy="308" r="13" fill="url(#skin2)"/>
+  <!-- Right arm holding multimeter -->
+  <path d="M468 330 Q510 310 520 290" stroke="#2C5F8A" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <circle cx="522" cy="287" r="12" fill="url(#skin2)"/>
+  <!-- Multimeter -->
+  <rect x="525" y="255" width="55" height="75" rx="6" fill="#1a1a2e" stroke="#C8A96E" stroke-width="1.5"/>
+  <rect x="531" y="262" width="43" height="28" rx="3" fill="#001a00"/>
+  <text x="552" y="280" font-size="13" fill="#00e676" font-family="monospace" text-anchor="middle">24.6</text>
+  <circle cx="552" cy="305" r="10" fill="#0d0d1a" stroke="#888" stroke-width="1.5"/>
+  <line x1="552" y1="297" x2="552" y2="303" stroke="#C8A96E" stroke-width="2"/>
+  <!-- Probe wires -->
+  <path d="M580 310 Q600 340 580 360" stroke="#ff4444" stroke-width="2" fill="none"/>
+  <path d="M580 312 Q558 345 538 355" stroke="#4444ff" stroke-width="2" fill="none"/>
+  <!-- Tool box -->
+  <rect x="580" y="420" width="120" height="60" rx="6" fill="#0d1e30" stroke="#C8A96E" stroke-width="1.5"/>
+  <rect x="620" y="412" width="40" height="14" rx="4" fill="#0d1e30" stroke="#C8A96E" stroke-width="1.5"/>
+  <line x1="580" y1="448" x2="700" y2="448" stroke="#C8A96E" stroke-width="1" opacity="0.5"/>
+  <!-- Tools in box -->
+  <rect x="592" y="456" width="6" height="18" rx="2" fill="#888"/>
+  <rect x="604" y="454" width="8" height="20" rx="2" fill="#C8A96E"/>
+  <rect x="618" y="458" width="5" height="16" rx="2" fill="#888"/>
+  <!-- Label -->
+  <rect x="0" y="540" width="800" height="60" fill="rgba(0,0,0,0.45)"/>
+  <text x="400" y="576" font-size="20" fill="#C8A96E" font-family="Arial" font-weight="bold" text-anchor="middle">إصلاح وتشخيص المكيفات</text>
+</svg>

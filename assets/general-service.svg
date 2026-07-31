@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d1e30"/><stop offset="100%" stop-color="#080f18"/></linearGradient>
+    <linearGradient id="skin7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4956a"/><stop offset="100%" stop-color="#b07040"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg7)"/>
+  <rect x="0" y="488" width="800" height="112" fill="#050c14"/>
+  <!-- Multiple appliances in background -->
+  <!-- AC unit -->
+  <rect x="60" y="80" width="180" height="65" rx="8" fill="#b8cfe0" opacity="0.7"/>
+  <line x1="70" y1="108" x2="230" y2="108" stroke="#7090ac" stroke-width="1.5" opacity="0.6"/>
+  <line x1="70" y1="118" x2="230" y2="118" stroke="#7090ac" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="215" cy="93" r="6" fill="#00e676" opacity="0.8"/>
+  <!-- Fridge -->
+  <rect x="560" y="100" width="130" height="220" rx="10" fill="#c8d8e0" opacity="0.7"/>
+  <line x1="560" y1="195" x2="690" y2="195" stroke="#8a9aaa" stroke-width="2" opacity="0.6"/>
+  <rect x="672" y="130" width="8" height="40" rx="4" fill="#8090a0" opacity="0.7"/>
+  <rect x="672" y="210" width="8" height="55" rx="4" fill="#8090a0" opacity="0.7"/>
+  <!-- Washer -->
+  <rect x="300" y="360" width="140" height="130" rx="10" fill="#c0ccd8" opacity="0.7"/>
+  <circle cx="370" cy="415" r="44" fill="#1a2a3a" stroke="#8090a0" stroke-width="2" opacity="0.8"/>
+  <circle cx="370" cy="415" r="34" fill="#0d1820" opacity="0.9"/>
+  <!-- Tech with clipboard/tablet inspecting -->
+  <!-- Legs -->
+  <rect x="355" y="210" width="22" height="150" rx="8" fill="#1a3a5c"/>
+  <rect x="387" y="210" width="22" height="150" rx="8" fill="#1a3a5c"/>
+  <ellipse cx="366" cy="360" rx="15" ry="9" fill="#0a1628"/>
+  <ellipse cx="398" cy="360" rx="15" ry="9" fill="#0a1628"/>
+  <!-- Torso -->
+  <rect x="340" y="90" width="84" height="132" rx="13" fill="#2C5F8A"/>
+  <rect x="353" y="112" width="28" height="22" rx="3" fill="#1a4a70" stroke="#C8A96E" stroke-width="1"/>
+  <text x="358" y="127" font-size="10" fill="#C8A96E" font-family="Arial" font-weight="bold">NT</text>
+  <!-- Left arm with checklist tablet -->
+  <path d="M341 120 Q300 118 278 110" stroke="#2C5F8A" stroke-width="26" stroke-linecap="round" fill="none"/>
+  <circle cx="275" cy="108" r="13" fill="url(#skin7)"/>
+  <!-- Tablet -->
+  <rect x="218" y="80" width="62" height="80" rx="6" fill="#1a1a2e" stroke="#4060a0" stroke-width="1.5"/>
+  <rect x="224" y="86" width="50" height="56" rx="3" fill="#0d0d20"/>
+  <text x="249" y="102" font-size="8" fill="#C8A96E" font-family="monospace" text-anchor="middle">REPORT</text>
+  <line x1="226" y1="110" x2="272" y2="110" stroke="#00e676" stroke-width="1" opacity="0.6"/>
+  <line x1="226" y1="118" x2="265" y2="118" stroke="#00e676" stroke-width="1" opacity="0.5"/>
+  <line x1="226" y1="126" x2="270" y2="126" stroke="#00e676" stroke-width="1" opacity="0.4"/>
+  <!-- Checkmarks -->
+  <text x="228" y="110" font-size="7" fill="#00e676">✓</text>
+  <text x="228" y="118" font-size="7" fill="#00e676">✓</text>
+  <text x="228" y="126" font-size="7" fill="#C8A96E">○</text>
+  <!-- Right arm pointing at AC -->
+  <path d="M423 120 Q470 105 510 95" stroke="#2C5F8A" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <circle cx="512" cy="94" r="12" fill="url(#skin7)"/>
+  <!-- Head -->
+  <circle cx="381" cy="64" r="36" fill="url(#skin7)"/>
+  <ellipse cx="381" cy="40" rx="36" ry="16" fill="#1a0800"/>
+  <ellipse cx="369" cy="68" rx="5" ry="5.5" fill="#0d0000" opacity="0.7"/>
+  <ellipse cx="393" cy="68" rx="5" ry="5.5" fill="#0d0000" opacity="0.7"/>
+  <path d="M371 80 Q381 88 391 80" stroke="#7a3a1a" stroke-width="2.5" fill="none"/>
+  <!-- Hard hat -->
+  <ellipse cx="381" cy="38" rx="42" ry="18" fill="#C8A96E"/>
+  <rect x="339" y="38" width="84" height="10" rx="2" fill="#b89040"/>
+  <!-- Label -->
+  <rect x="0" y="540" width="800" height="60" fill="rgba(0,0,0,0.45)"/>
+  <text x="400" y="576" font-size="20" fill="#C8A96E" font-family="Arial" font-weight="bold" text-anchor="middle">فحص وصيانة عامة للأجهزة</text>
+</svg>
