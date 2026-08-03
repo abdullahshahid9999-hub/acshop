@@ -4,98 +4,195 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>نعمان تبريد | خبراء التكييف والصيانة في الرياض</title>
 <meta name="description" content="نعمان تبريد – تركيب وإصلاح وصيانة المكيفات والثلاجات والغسالات في الرياض. خبرة +١٠ سنوات، خدمة منزلية، ضمان كامل."/>
-<meta name="keywords" content="صيانة مكيفات الرياض,تركيب مكيفات,إصلاح ثلاجات,AC repair Riyadh,Nouman Tabreed"/>
 <meta name="robots" content="index,follow"/>
 <link rel="canonical" href="https://noumanatabreed.com/"/>
 <meta property="og:title" content="نعمان تبريد | خبراء التكييف والصيانة في الرياض"/>
-<meta property="og:description" content="خدمات احترافية للتبريد والصيانة في الرياض."/>
 <meta property="og:type" content="website"/>
 <meta property="og:locale" content="ar_SA"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"نعمان تبريد","telephone":"+966XXXXXXXXX","address":{"@type":"PostalAddress","addressLocality":"الرياض","addressCountry":"SA"},"openingHours":"Sa-Th 08:00-22:00","areaServed":"الرياض"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="style.css"/>
 <style>
 /* ── HERO ── */
-#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding-top:68px}
-.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:orb-float 8s ease-in-out infinite}
-.orb1{width:500px;height:500px;background:radial-gradient(circle,rgba(44,95,138,0.25),transparent 70%);top:-100px;right:-100px;animation-delay:0s}
-.orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(200,169,110,0.12),transparent 70%);bottom:-80px;left:-80px;animation-delay:-4s}
-.orb3{width:300px;height:300px;background:radial-gradient(circle,rgba(44,95,138,0.15),transparent 70%);top:40%;left:20%;animation-delay:-2s}
-@keyframes orb-float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
-.hero-c{position:relative;z-index:1;text-align:center;max-width:780px;padding:0 20px}
-.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,169,110,0.08);border:1px solid var(--border2);padding:7px 18px;border-radius:30px;font-size:12px;font-weight:700;color:var(--accent);margin-bottom:28px;letter-spacing:1px}
-.badge-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse-dot 2s ease infinite}
-@keyframes pulse-dot{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(200,169,110,.4)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(200,169,110,0)}}
-.hero-title{font-size:clamp(32px,6vw,68px);font-weight:900;line-height:1.15;margin-bottom:16px}
-.hero-title .hl{background:linear-gradient(135deg,#C8A96E 0%,#e8c98e 50%,#C8A96E 100%);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
-.hero-sub{font-size:clamp(14px,2vw,18px);color:var(--text2);max-width:540px;margin:0 auto 40px;line-height:1.9}
-.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:56px}
-.btn-gold{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#C8A96E,#b89040);color:#060d18;font-weight:700;font-size:15px;padding:14px 28px;border-radius:12px;font-family:'Cairo',sans-serif;transition:all .3s;box-shadow:0 4px 24px rgba(200,169,110,.3);position:relative;overflow:hidden}
-.btn-gold::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#e8c98e,#C8A96E);opacity:0;transition:opacity .3s}
-.btn-gold:hover::before{opacity:1}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,169,110,.45)}
-.btn-gold span{position:relative;z-index:1}
-.btn-outline{display:inline-flex;align-items:center;gap:9px;background:transparent;color:var(--text);font-weight:700;font-size:15px;padding:13px 28px;border-radius:12px;font-family:'Cairo',sans-serif;border:1px solid var(--border2);transition:all .3s}
-.btn-outline:hover{background:rgba(200,169,110,.08);border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-/* Stats */
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;max-width:700px;margin:0 auto}
-.stat-box{background:var(--card);padding:20px 16px;text-align:center;transition:background .3s}
-.stat-box:hover{background:var(--card2)}
-.stat-num{font-size:28px;font-weight:900;color:var(--accent);line-height:1;display:block}
-.stat-lbl{font-size:11px;color:var(--text2);margin-top:4px;display:block}
-/* Scroll indicator */
-.scroll-ind{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--text3);font-size:11px;margin-top:48px}
-.scroll-mouse{width:22px;height:34px;border:2px solid var(--text3);border-radius:11px;display:flex;justify-content:center;padding-top:5px}
-.scroll-wheel{width:3px;height:6px;background:var(--accent);border-radius:2px;animation:scroll-anim 1.8s ease infinite}
-@keyframes scroll-anim{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(10px)}}
+#hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding-top: 68px; position: relative; overflow: hidden;
+}
+.hero-line {
+  position: absolute; background: var(--border);
+  pointer-events: none;
+}
+.hero-line-h { height: 1px; left: 0; right: 0; }
+.hero-line-v { width: 1px; top: 0; bottom: 0; }
+.h-line1 { top: 30%; } .h-line2 { top: 65%; }
+.v-line1 { left: 22%; } .v-line2 { right: 22%; }
+.hero-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--gold);
+  border: 1px solid var(--border2);
+  padding: 5px 14px; border-radius: 4px; margin-bottom: 22px;
+}
+.hero-badge-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+.hero-h1 { font-size: clamp(34px,5vw,60px); font-weight: 800; line-height: 1.18; margin-bottom: 18px; }
+.hero-h1 em { font-style: normal; color: var(--gold); }
+.hero-sub { font-size: 16px; color: var(--text2); line-height: 1.9; margin-bottom: 36px; max-width: 440px; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; }
+.hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.h-stat { padding: 18px 14px; text-align: center; border-left: 1px solid var(--border); }
+.h-stat:last-child { border-left: none; }
+[dir=ltr] .h-stat { border-left: none; border-right: 1px solid var(--border); }
+[dir=ltr] .h-stat:last-child { border-right: none; }
+.h-stat-n { font-size: 26px; font-weight: 800; color: var(--gold); display: block; line-height: 1; }
+.h-stat-l { font-size: 11px; color: var(--text2); display: block; margin-top: 4px; }
+/* Right: visual panel */
+.hero-visual {
+  position: relative; height: 460px;
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+  background: var(--bg3);
+}
+.hero-visual-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(30,58,95,.4), transparent 65%);
+}
+.ac-unit-3d {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -54%);
+  width: 220px;
+}
+.ac-body {
+  background: #c8d8e8; border-radius: 10px; padding: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.2);
+  position: relative; overflow: hidden;
+}
+.ac-top-bar { height: 4px; background: #90b0cc; border-radius: 2px; margin-bottom: 8px; }
+.ac-display {
+  background: #0a1520; border-radius: 4px; padding: 6px 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 8px;
+}
+.ac-temp { font-size: 13px; font-weight: 700; color: #00e676; font-family: monospace; }
+.ac-status-dot { width: 6px; height: 6px; background: #00e676; border-radius: 50%; animation: blink 2s ease infinite; }
+@keyframes blink { 0%,100%{opacity:1}50%{opacity:.2} }
+.ac-grille { display: flex; flex-direction: column; gap: 3px; }
+.ac-slat { height: 3px; background: #8ab0cc; border-radius: 1.5px; opacity: .7; }
+.ac-blade {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 6px; background: #7aa0bc; border-radius: 0 0 10px 10px;
+  animation: blade-sway 3s ease-in-out infinite;
+}
+@keyframes blade-sway { 0%,100%{transform:scaleX(1)}50%{transform:scaleX(.97)} }
+/* Cold air particles */
+.air-stream { position: absolute; top: 56%; left: 0; right: 0; height: 160px; }
+.air-dot {
+  position: absolute; border-radius: 50%;
+  background: rgba(160,210,240,.5); animation: drift linear infinite;
+}
+@keyframes drift {
+  0%   { opacity: .7; transform: translateY(0) scale(1); }
+  100% { opacity: 0;  transform: translateY(120px) scale(.2); }
+}
+.snowf { position: absolute; color: rgba(160,210,240,.4); font-size: 11px; animation: snowfall linear infinite; }
+@keyframes snowfall { 0%{opacity:.6;transform:translateY(-10px) rotate(0)} 100%{opacity:0;transform:translateY(180px) rotate(180deg)} }
+/* Meter panel on side */
+.hero-meter {
+  position: absolute; bottom: 28px; right: 20px;
+  background: var(--bg2); border: 1px solid var(--border2);
+  border-radius: 8px; padding: 14px 16px; width: 130px;
+}
+.meter-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.meter-bar-wrap { background: var(--bg); border-radius: 3px; height: 4px; margin-bottom: 6px; overflow: hidden; }
+.meter-bar { height: 100%; border-radius: 3px; background: var(--gold); animation: meter-fill 3s ease-in-out infinite alternate; }
+@keyframes meter-fill { from{width:60%} to{width:92%} }
+.meter-val { font-size: 18px; font-weight: 800; color: var(--text); }
+.meter-unit { font-size: 10px; color: var(--text2); }
+/* Badge top-left of visual */
+.hero-vis-badge {
+  position: absolute; top: 20px; left: 20px;
+  background: var(--bg2); border: 1px solid var(--border2);
+  border-radius: 6px; padding: 8px 12px;
+  font-size: 11px; font-weight: 700; color: var(--gold);
+  display: flex; align-items: center; gap: 6px;
+}
+.pulse-ring {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #25D366; position: relative;
+}
+.pulse-ring::after {
+  content: ''; position: absolute; inset: -3px;
+  border-radius: 50%; border: 1.5px solid #25D366;
+  animation: ring-pulse 1.8s ease infinite; opacity: 0;
+}
+@keyframes ring-pulse { 0%{transform:scale(1);opacity:.7}100%{transform:scale(1.8);opacity:0} }
 
 /* ── WHY US ── */
-#why{background:var(--bg2)}
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.why-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px 22px;text-align:center;transition:all .35s;cursor:default;position:relative;overflow:hidden}
-.why-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,169,110,0.06),transparent);opacity:0;transition:opacity .35s}
-.why-card:hover::before{opacity:1}
-.why-card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 16px 48px rgba(200,169,110,.12)}
-.why-ico-wrap{width:60px;height:60px;background:rgba(200,169,110,.08);border:1px solid var(--border);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px;transition:all .35s}
-.why-card:hover .why-ico-wrap{background:rgba(200,169,110,.15);border-color:var(--accent);transform:scale(1.1)}
-.why-card h3{font-size:15px;font-weight:700;margin-bottom:6px}
-.why-card p{font-size:12px;color:var(--text2);line-height:1.7}
+#why { background: var(--bg2); }
+.why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.why-item { background: var(--bg2); padding: 32px 24px; transition: background .25s; }
+.why-item:hover { background: var(--card); }
+.why-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--gold); margin-bottom: 16px; }
+.why-ico { font-size: 28px; margin-bottom: 14px; display: block; }
+.why-item h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.why-item p { font-size: 13px; color: var(--text2); line-height: 1.75; }
 
 /* ── TESTIMONIALS ── */
-.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.test-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px;transition:all .35s;position:relative}
-.test-card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 12px 40px rgba(200,169,110,.1)}
-.quote-mark{font-size:72px;line-height:.8;color:var(--accent);opacity:.2;font-family:Georgia,serif;margin-bottom:4px}
-.stars{color:#f5b400;font-size:14px;letter-spacing:2px;margin-bottom:12px}
-.test-txt{font-size:13px;color:var(--text2);line-height:1.85;margin-bottom:20px}
-.test-auth{display:flex;align-items:center;gap:12px}
-.avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--accent3));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;color:#fff;flex-shrink:0}
-.auth-name{font-weight:700;font-size:13px}
-.auth-loc{font-size:11px;color:var(--text3)}
+.test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.test-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 28px 24px;
+  transition: border-color .25s, transform .25s;
+}
+.test-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+.test-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 14px; }
+.test-body { font-size: 13px; color: var(--text2); line-height: 1.85; margin-bottom: 22px; }
+.test-author { display: flex; align-items: center; gap: 12px; }
+.test-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--steel); border: 1px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 15px; color: var(--gold); flex-shrink: 0;
+}
+.test-name { font-size: 13px; font-weight: 700; }
+.test-loc { font-size: 11px; color: var(--text2); margin-top: 2px; }
 
-/* ── CTA BANNER ── */
-#cta-band{background:linear-gradient(135deg,var(--blue2) 0%,var(--bg3) 50%,rgba(200,169,110,.1) 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:70px 0;text-align:center;position:relative;overflow:hidden}
-#cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(200,169,110,.08),transparent 70%)}
-.cta-title{font-size:clamp(22px,4vw,40px);font-weight:900;margin-bottom:10px}
-.cta-sub{font-size:15px;color:var(--text2);margin-bottom:32px}
+/* ── CTA STRIP ── */
+#cta-strip {
+  background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 64px 0;
+}
+.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.cta-text h2 { font-size: clamp(22px,3vw,36px); font-weight: 800; margin-bottom: 6px; }
+.cta-text p { font-size: 15px; color: var(--text2); }
+.cta-actions { display: flex; gap: 12px; flex-shrink: 0; }
 
-@media(max-width:900px){.why-grid{grid-template-columns:repeat(2,1fr)}.test-grid{grid-template-columns:1fr;display:flex;overflow-x:auto;gap:14px;padding-bottom:10px;scroll-snap-type:x mandatory}.test-card{min-width:280px;scroll-snap-align:start;flex-shrink:0}}
-@media(max-width:600px){.stats-row{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:repeat(2,1fr)}.hero-btns .btn-gold,.hero-btns .btn-outline{font-size:13px;padding:12px 20px}}
+@media(max-width:1024px){ .hero-inner{grid-template-columns:1fr} .hero-visual{display:none} .why-grid{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:768px){ .test-grid{display:flex;overflow-x:auto;gap:14px;padding-bottom:8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch} .test-card{min-width:272px;scroll-snap-align:start;flex-shrink:0} .cta-inner{flex-direction:column;text-align:center} .cta-actions{justify-content:center} }
+@media(max-width:580px){ .why-grid{grid-template-columns:1fr 1fr} .hero-stats{grid-template-columns:repeat(3,1fr)} }
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <canvas id="particles"></canvas>
-<nav id="nav" class="nav-glass">
+
+<nav id="nav">
 <div class="nav-inner">
-  <a href="index.html" class="logo"><div class="logo-txt"><span class="logo-ar">نعمان تبريد</span><span class="logo-en">Nouman Tabreed</span></div></a>
+  <a href="index.html" class="logo">
+    <div class="logo-mark"><span class="logo-mark-text">ن ت</span></div>
+    <div class="logo-words">
+      <span class="logo-ar">نعمان <strong>تبريد</strong></span>
+      <span class="logo-en">Nouman Tabreed</span>
+    </div>
+  </a>
   <ul class="nav-links">
     <li><a href="index.html" class="active"><span class="ari">الرئيسية</span><span class="eni">Home</span></a></li>
-    <li><a href="services.html"><span class="ari">خدماتنا</span><span class="eni">Services</span></a></li>
-    <li><a href="gallery.html"><span class="ari">معرض الأعمال</span><span class="eni">Gallery</span></a></li>
+    <li><a href="services.html"><span class="ari">الخدمات</span><span class="eni">Services</span></a></li>
+    <li><a href="gallery.html"><span class="ari">المعرض</span><span class="eni">Gallery</span></a></li>
     <li><a href="contact.html"><span class="ari">تواصل معنا</span><span class="eni">Contact</span></a></li>
   </ul>
   <div class="nav-ctrl">
@@ -107,33 +204,65 @@
 </nav>
 <div id="mmenu"><ul>
   <li><a href="index.html" class="ml"><span class="ari">الرئيسية</span><span class="eni">Home</span></a></li>
-  <li><a href="services.html" class="ml"><span class="ari">خدماتنا</span><span class="eni">Services</span></a></li>
-  <li><a href="gallery.html" class="ml"><span class="ari">معرض الأعمال</span><span class="eni">Gallery</span></a></li>
+  <li><a href="services.html" class="ml"><span class="ari">الخدمات</span><span class="eni">Services</span></a></li>
+  <li><a href="gallery.html" class="ml"><span class="ari">المعرض</span><span class="eni">Gallery</span></a></li>
   <li><a href="contact.html" class="ml"><span class="ari">تواصل معنا</span><span class="eni">Contact</span></a></li>
 </ul></div>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-orb orb1"></div>
-  <div class="hero-orb orb2"></div>
-  <div class="hero-orb orb3"></div>
-  <div class="hero-c rev">
-    <div class="badge"><div class="badge-dot"></div><span class="ar">خبراء التبريد في الرياض — خدمة ٢٤/٧</span><span class="en">AC & Appliance Experts — 24/7 Service</span></div>
-    <h1 class="hero-title ar">خبراء <span class="hl">التبريد والصيانة</span><br/>في الرياض</h1>
-    <h1 class="hero-title en">Riyadh's Premier<br/><span class="hl">AC & Appliance</span> Experts</h1>
-    <p class="hero-sub ar">تركيب وإصلاح وصيانة المكيفات والثلاجات والغسالات بخبرة تزيد عن ١٠ سنوات. نصل إليك في أي حي بالرياض.</p>
-    <p class="hero-sub en">Professional AC installation, refrigerator repair & washing machine maintenance across Riyadh for 10+ years. We come to you.</p>
-    <div class="hero-btns">
-      <a href="contact.html" class="btn-gold"><span>📞</span><span class="ar">احجز الآن</span><span class="en">Book Now</span></a>
-      <a href="services.html" class="btn-outline"><span class="ar">اكتشف خدماتنا</span><span class="en">Our Services</span><span>←</span></a>
+  <div class="hero-line hero-line-h h-line1"></div>
+  <div class="hero-line hero-line-h h-line2"></div>
+  <div class="hero-line hero-line-v v-line1"></div>
+  <div class="hero-line hero-line-v v-line2"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="rev">
+        <div class="hero-badge"><div class="hero-badge-dot"></div><span class="ari">الرياض، المملكة العربية السعودية</span><span class="eni">Al Riyadh, Saudi Arabia</span></div>
+        <h1 class="hero-h1 ar">خبراء <em>التبريد</em><br/>والصيانة في<br/>الرياض</h1>
+        <h1 class="hero-h1 en">Riyadh's Trusted<br/><em>AC & Appliance</em><br/>Repair Experts</h1>
+        <p class="hero-sub ar">تركيب وإصلاح وصيانة المكيفات والثلاجات والغسالات بخبرة تزيد عن ١٠ سنوات. نصل إليك في أي حي بالرياض.</p>
+        <p class="hero-sub en">Professional AC installation, refrigerator & washing machine repair with 10+ years experience across Riyadh.</p>
+        <div class="hero-btns">
+          <a href="contact.html" class="btn-primary"><span class="ari">احجز زيارة</span><span class="eni">Book a Visit</span></a>
+          <a href="services.html" class="btn-secondary"><span class="ari">خدماتنا</span><span class="eni">Our Services</span></a>
+        </div>
+        <div class="hero-stats">
+          <div class="h-stat"><span class="h-stat-n counter" data-target="10" data-plus="true">0</span><span class="h-stat-l ar">سنوات خبرة</span><span class="h-stat-l en">Yrs Experience</span></div>
+          <div class="h-stat"><span class="h-stat-n counter" data-target="500" data-plus="true">0</span><span class="h-stat-l ar">عميل راضٍ</span><span class="h-stat-l en">Happy Clients</span></div>
+          <div class="h-stat"><span class="h-stat-n">٢٤/٧</span><span class="h-stat-l ar">طوارئ</span><span class="h-stat-l en">Emergency</span></div>
+        </div>
+      </div>
+      <!-- Right visual -->
+      <div class="hero-visual rev-r">
+        <div class="hero-visual-bg"></div>
+        <div class="hero-vis-badge"><div class="pulse-ring"></div><span class="ari">خدمة نشطة الآن</span><span class="eni">Active Now</span></div>
+        <div class="ac-unit-3d">
+          <div class="ac-body">
+            <div class="ac-top-bar"></div>
+            <div class="ac-display"><span class="ac-temp">18°C</span><div class="ac-status-dot"></div></div>
+            <div class="ac-grille"><div class="ac-slat"></div><div class="ac-slat"></div><div class="ac-slat"></div><div class="ac-slat"></div><div class="ac-slat"></div></div>
+            <div class="ac-blade"></div>
+          </div>
+        </div>
+        <div class="air-stream">
+          <div class="air-dot" style="left:20%;width:6px;height:6px;animation-duration:2.2s;animation-delay:0s"></div>
+          <div class="air-dot" style="left:35%;width:4px;height:4px;animation-duration:2.8s;animation-delay:.4s"></div>
+          <div class="air-dot" style="left:50%;width:7px;height:7px;animation-duration:2.5s;animation-delay:.8s"></div>
+          <div class="air-dot" style="left:65%;width:4px;height:4px;animation-duration:3s;animation-delay:.3s"></div>
+          <div class="air-dot" style="left:78%;width:5px;height:5px;animation-duration:2.4s;animation-delay:1.1s"></div>
+          <span class="snowf" style="left:25%;animation-duration:3.5s;animation-delay:0s">❄</span>
+          <span class="snowf" style="left:50%;animation-duration:4s;animation-delay:1s">❄</span>
+          <span class="snowf" style="left:70%;animation-duration:3s;animation-delay:.5s">❄</span>
+        </div>
+        <div class="hero-meter">
+          <div class="meter-label ar">كفاءة التبريد</div>
+          <div class="meter-label en">Cooling Efficiency</div>
+          <div class="meter-bar-wrap"><div class="meter-bar"></div></div>
+          <span class="meter-val">94<span class="meter-unit">%</span></span>
+        </div>
+      </div>
     </div>
-    <div class="stats-row">
-      <div class="stat-box"><span class="stat-num counter" data-target="10" data-plus="true">٠</span><span class="stat-lbl ar">سنوات خبرة</span><span class="stat-lbl en">Yrs Experience</span></div>
-      <div class="stat-box"><span class="stat-num counter" data-target="500" data-plus="true">٠</span><span class="stat-lbl ar">عميل راضٍ</span><span class="stat-lbl en">Happy Clients</span></div>
-      <div class="stat-box"><span class="stat-num">٢٤/٧</span><span class="stat-lbl ar">طوارئ</span><span class="stat-lbl en">Emergency</span></div>
-      <div class="stat-box"><span class="stat-num counter" data-target="100" data-percent="true">٠</span><span class="stat-lbl ar">ضمان</span><span class="stat-lbl en">Guarantee</span></div>
-    </div>
-    <div class="scroll-ind"><div class="scroll-mouse"><div class="scroll-wheel"></div></div><span class="ar">اكتشف المزيد</span><span class="en">Scroll to explore</span></div>
   </div>
 </section>
 
@@ -141,106 +270,107 @@
 <section id="why" class="sec">
 <div class="wrap">
   <div class="rev">
-    <span class="s-label ar">ميزتنا</span><span class="s-label en">Our Edge</span>
-    <h2 class="s-title ar">لماذا <span>نعمان تبريد؟</span></h2><h2 class="s-title en">Why <span>Nouman Tabreed?</span></h2>
-    <p class="s-sub ar">لأننا لا نصلح فقط — نبني ثقة دائمة مع كل عميل.</p>
-    <p class="s-sub en">Because we don't just fix appliances — we build lasting trust with every client.</p>
+    <div class="s-eyebrow ar">ما يميزنا</div><div class="s-eyebrow en">Our Edge</div>
+    <h2 class="s-title ar">لماذا نعمان تبريد؟</h2><h2 class="s-title en">Why Nouman Tabreed?</h2>
+    <p class="s-sub ar">لأننا نقدم أكثر من مجرد إصلاح — نقدم راحة بال حقيقية.</p>
+    <p class="s-sub en">Because we deliver more than just repairs — we deliver real peace of mind.</p>
   </div>
   <div class="why-grid">
-    <div class="why-card rev d1"><div class="why-ico-wrap">🏆</div><h3 class="ar">خبرة +١٠ سنوات</h3><h3 class="en">10+ Years Experience</h3><p class="ar">عقد كامل في خدمة عائلات الرياض بأعلى معايير الجودة.</p><p class="en">A full decade serving Riyadh families with highest quality standards.</p></div>
-    <div class="why-card rev d2"><div class="why-ico-wrap">🏠</div><h3 class="ar">خدمة منزلية فورية</h3><h3 class="en">Instant Home Service</h3><p class="ar">نأتي إليك في أي حي — لا تحتاج لنقل جهازك.</p><p class="en">We come to you anywhere in Riyadh — no need to move anything.</p></div>
-    <div class="why-card rev d3"><div class="why-ico-wrap">⚡</div><h3 class="ar">استجابة خلال ساعات</h3><h3 class="en">Hours Response Time</h3><p class="ar">نعلم أن الوقت ثمين — نصل إليك بأسرع وقت ممكن.</p><p class="en">We know your time is valuable — we arrive as fast as possible.</p></div>
-    <div class="why-card rev d4"><div class="why-ico-wrap">🛡️</div><h3 class="ar">ضمان مكتوب</h3><h3 class="en">Written Guarantee</h3><p class="ar">جميع أعمالنا مضمونة بالكامل — راحة بالك أولويتنا.</p><p class="en">All work fully guaranteed in writing — your peace of mind is our priority.</p></div>
+    <div class="why-item rev d1"><div class="why-num">01</div><span class="why-ico">🏆</span><h3 class="ar">خبرة +١٠ سنوات</h3><h3 class="en">10+ Years Experience</h3><p class="ar">عقد كامل في خدمة عائلات الرياض بأعلى معايير الجودة.</p><p class="en">A full decade serving Riyadh families with the highest quality standards.</p></div>
+    <div class="why-item rev d2"><div class="why-num">02</div><span class="why-ico">🏠</span><h3 class="ar">خدمة في المنزل</h3><h3 class="en">Home Service</h3><p class="ar">نأتي إليك في أي حي — لا تحتاج لنقل الجهاز.</p><p class="en">We come to you anywhere in Riyadh — no need to move your appliance.</p></div>
+    <div class="why-item rev d3"><div class="why-num">03</div><span class="why-ico">⚡</span><h3 class="ar">استجابة سريعة</h3><h3 class="en">Fast Response</h3><p class="ar">نصل إليك خلال ساعات من مكالمتك الأولى.</p><p class="en">We arrive within hours of your first call.</p></div>
+    <div class="why-item rev d4"><div class="why-num">04</div><span class="why-ico">🛡️</span><h3 class="ar">ضمان مكتوب</h3><h3 class="en">Written Guarantee</h3><p class="ar">جميع أعمال الإصلاح والتركيب مضمونة بالكامل.</p><p class="en">All repair and installation work fully guaranteed in writing.</p></div>
   </div>
 </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section id="testimonials" class="sec">
+<section id="reviews" class="sec">
 <div class="wrap">
   <div class="rev">
-    <span class="s-label ar">آراء العملاء</span><span class="s-label en">Client Reviews</span>
-    <h2 class="s-title ar">ماذا يقول <span>عملاؤنا</span></h2><h2 class="s-title en">What Our <span>Clients Say</span></h2>
-    <p class="s-sub ar">ثقة أكثر من ٥٠٠ عائلة في الرياض تتحدث عنا.</p>
-    <p class="s-sub en">500+ Riyadh families trust us — and that speaks volumes.</p>
+    <div class="s-eyebrow ar">آراء العملاء</div><div class="s-eyebrow en">Client Reviews</div>
+    <h2 class="s-title ar">ماذا يقول عملاؤنا</h2><h2 class="s-title en">What Our Clients Say</h2>
   </div>
   <div class="test-grid">
     <article class="test-card rev d1">
-      <div class="quote-mark">"</div>
-      <div class="stars">★★★★★</div>
-      <p class="test-txt ar">فريق محترف جداً، جاءوا في نفس اليوم وأصلحوا المكيف في ساعة. سعر معقول وضمان على الشغل.</p>
-      <p class="test-txt en">Extremely professional team, came same day and fixed the AC in an hour. Fair price with a guarantee.</p>
-      <div class="test-auth"><div class="avatar">أ</div><div><div class="auth-name ar">أحمد الغامدي</div><div class="auth-name en">Ahmed Al-Ghamdi</div><div class="auth-loc ar">حي النرجس، الرياض</div><div class="auth-loc en">Al Narjis, Riyadh</div></div></div>
+      <div class="test-stars">★★★★★</div>
+      <p class="test-body ar">فريق محترف جداً، جاءوا في نفس اليوم وأصلحوا المكيف في ساعة. سعر معقول وضمان على الشغل. أنصح الكل بهم.</p>
+      <p class="test-body en">Very professional, came same day and fixed the AC in an hour. Fair price, work guarantee. Highly recommended.</p>
+      <div class="test-author"><div class="test-avatar">أ</div><div><div class="test-name ar">أحمد الغامدي</div><div class="test-name en">Ahmed Al-Ghamdi</div><div class="test-loc ar">حي النرجس، الرياض</div><div class="test-loc en">Al Narjis, Riyadh</div></div></div>
     </article>
     <article class="test-card rev d2">
-      <div class="quote-mark">"</div>
-      <div class="stars">★★★★★</div>
-      <p class="test-txt ar">الثلاجة كانت تعبانة أسبوع، جاء الفني وشخّص المشكلة وغيّر القطعة بنفس اليوم. شكراً!</p>
-      <p class="test-txt en">Fridge had been broken a week. Technician diagnosed and fixed it same day. Thank you!</p>
-      <div class="test-auth"><div class="avatar">س</div><div><div class="auth-name ar">سارة العتيبي</div><div class="auth-name en">Sara Al-Otaibi</div><div class="auth-loc ar">حي الملقا، الرياض</div><div class="auth-loc en">Al Malqa, Riyadh</div></div></div>
+      <div class="test-stars">★★★★★</div>
+      <p class="test-body ar">الثلاجة كانت تعبانة أسبوع، جاء الفني وشخّص المشكلة وغيّر القطعة بنفس اليوم. خدمة ممتازة.</p>
+      <p class="test-body en">Fridge broken for a week — technician came, diagnosed and fixed it same day. Excellent service.</p>
+      <div class="test-author"><div class="test-avatar">س</div><div><div class="test-name ar">سارة العتيبي</div><div class="test-name en">Sara Al-Otaibi</div><div class="test-loc ar">حي الملقا، الرياض</div><div class="test-loc en">Al Malqa, Riyadh</div></div></div>
     </article>
     <article class="test-card rev d3">
-      <div class="quote-mark">"</div>
-      <div class="stars">★★★★★</div>
-      <p class="test-txt ar">تعاملت معهم لتركيب ٤ مكيفات في الفيلا. العمل نظيف، الأسعار تنافسية. سأتعامل معهم دائماً.</p>
-      <p class="test-txt en">Used them for 4 AC installs in my villa. Clean work, competitive prices. My go-to always.</p>
-      <div class="test-auth"><div class="avatar">م</div><div><div class="auth-name ar">محمد القحطاني</div><div class="auth-name en">Mohammed Al-Qahtani</div><div class="auth-loc ar">حي الياسمين، الرياض</div><div class="auth-loc en">Al Yasmin, Riyadh</div></div></div>
+      <div class="test-stars">★★★★★</div>
+      <p class="test-body ar">تعاملت معهم لتركيب ٤ مكيفات في الفيلا. عمل نظيف ومرتب، أسعار تنافسية. سأتعامل معهم دائماً.</p>
+      <p class="test-body en">Had 4 ACs installed in my villa — clean work, competitive prices. My permanent go-to.</p>
+      <div class="test-author"><div class="test-avatar">م</div><div><div class="test-name ar">محمد القحطاني</div><div class="test-name en">Mohammed Al-Qahtani</div><div class="test-loc ar">حي الياسمين، الرياض</div><div class="test-loc en">Al Yasmin, Riyadh</div></div></div>
     </article>
   </div>
 </div>
 </section>
 
-<!-- CTA BAND -->
-<section id="cta-band">
-  <div class="wrap rev">
-    <h2 class="cta-title ar">جاهز لحل مشكلتك الآن؟</h2>
-    <h2 class="cta-title en">Ready to Fix Your Problem Now?</h2>
-    <p class="cta-sub ar">تواصل معنا الآن وسنصل إليك في أقرب وقت.</p>
-    <p class="cta-sub en">Contact us now and we'll be at your door as soon as possible.</p>
-    <div class="hero-btns">
-      <a href="contact.html" class="btn-gold"><span>📞</span><span class="ar">اتصل بنا</span><span class="en">Call Us</span></a>
-      <a href="https://wa.me/966XXXXXXXXX" class="btn-outline" target="_blank" rel="noopener"><span>💬</span><span>WhatsApp</span></a>
+<!-- CTA STRIP -->
+<section id="cta-strip">
+<div class="wrap">
+  <div class="cta-inner rev">
+    <div class="cta-text">
+      <h2 class="ar">جاهز لحل مشكلتك؟</h2><h2 class="en">Ready to Fix Your Problem?</h2>
+      <p class="ar">تواصل معنا الآن — خدمة طوارئ ٢٤/٧ متاحة.</p><p class="en">Contact us now — 24/7 emergency service available.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-primary"><span class="ari">احجز الآن</span><span class="eni">Book Now</span></a>
+      <a href="https://wa.me/966XXXXXXXXX" class="btn-secondary" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
+</div>
 </section>
 
 <!-- FOOTER -->
-<div class="glow-line"></div>
+<div class="divider"></div>
 <footer>
 <div class="wrap">
   <div class="foot-grid">
     <div class="foot-brand">
-      <div class="logo-txt"><span class="logo-ar">نعمان تبريد</span><span class="logo-en" style="-webkit-text-fill-color:var(--text2)">Nouman Tabreed</span></div>
-      <p class="ar">خبراء التبريد والصيانة في الرياض منذ أكثر من ١٠ سنوات.</p>
-      <p class="en">AC & appliance experts in Riyadh for 10+ years.</p>
+      <a href="index.html" class="logo" style="margin-bottom:14px">
+        <div class="logo-mark"><span class="logo-mark-text">ن ت</span></div>
+        <div class="logo-words"><span class="logo-ar">نعمان <strong>تبريد</strong></span><span class="logo-en">Nouman Tabreed</span></div>
+      </a>
+      <p class="ar">خبراء التبريد والصيانة في الرياض منذ أكثر من ١٠ سنوات. نقدم خدمة احترافية بضمان كامل على جميع الأعمال.</p>
+      <p class="en">AC & appliance experts in Riyadh for 10+ years. Professional service with full guarantee on all work.</p>
     </div>
     <div class="foot-col">
       <h4 class="ar">روابط سريعة</h4><h4 class="en">Quick Links</h4>
       <ul>
         <li><a href="index.html"><span class="ari">الرئيسية</span><span class="eni">Home</span></a></li>
-        <li><a href="services.html"><span class="ari">خدماتنا</span><span class="eni">Services</span></a></li>
-        <li><a href="gallery.html"><span class="ari">معرض الأعمال</span><span class="eni">Gallery</span></a></li>
+        <li><a href="services.html"><span class="ari">الخدمات</span><span class="eni">Services</span></a></li>
+        <li><a href="gallery.html"><span class="ari">المعرض</span><span class="eni">Gallery</span></a></li>
         <li><a href="contact.html"><span class="ari">تواصل معنا</span><span class="eni">Contact</span></a></li>
       </ul>
     </div>
     <div class="foot-col">
       <h4 class="ar">تواصل معنا</h4><h4 class="en">Contact</h4>
       <ul>
-        <li><a href="tel:+966XXXXXXXXX">📞 +966 XX XXX XXXX</a></li>
-        <li><a href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener">💬 WhatsApp</a></li>
-        <li><a>📍 <span class="ari">الرياض، السعودية</span><span class="eni">Riyadh, KSA</span></a></li>
-        <li><a>🕐 <span class="ari">س–خ: ٨ص–١٠م</span><span class="eni">Sa–Th: 8AM–10PM</span></a></li>
+        <li><a href="tel:+966XXXXXXXXX">+966 XX XXX XXXX</a></li>
+        <li><a href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a><span class="ari">الرياض، المملكة العربية السعودية</span><span class="eni">Riyadh, Saudi Arabia</span></a></li>
+        <li><a><span class="ari">السبت–الخميس: ٨ص–١٠م</span><span class="eni">Sat–Thu: 8AM–10PM</span></a></li>
       </ul>
     </div>
   </div>
   <div class="foot-bottom">
-    <p class="foot-copy"><span class="ari">© ٢٠٢٥ نعمان تبريد. جميع الحقوق محفوظة.</span><span class="eni">© 2025 Nouman Tabreed. All rights reserved.</span></p>
-    <div class="foot-badge"><span class="ari">موقع آمن ومحمي</span><span class="eni">Secure & Protected</span></div>
+    <span class="foot-copy"><span class="ari">© ٢٠٢٥ نعمان تبريد. جميع الحقوق محفوظة.</span><span class="eni">© 2025 Nouman Tabreed. All rights reserved.</span></span>
+    <span class="foot-secure"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg><span class="ari">موقع آمن ومشفّر</span><span class="eni">Secure & Encrypted</span></span>
   </div>
 </div>
 </footer>
+
 <a id="fwa" href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener noreferrer">
-  <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   <span class="wa-label ari">واتساب</span><span class="wa-label eni">WhatsApp</span>
 </a>
 <div id="mob-bar">

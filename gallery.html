@@ -2,89 +2,94 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>معرض الأعمال | نعمان تبريد</title>
+<title>المعرض | نعمان تبريد</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="style.css"/>
 <style>
-.page-hero{min-height:36vh;display:flex;align-items:flex-end;padding-top:68px;position:relative;overflow:hidden}
-.page-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,169,110,.1),rgba(44,95,138,.15))}
-.page-hero-content{position:relative;z-index:1;padding:50px 0 44px}
-.page-hero-content h1{font-size:clamp(28px,5vw,52px);font-weight:900;margin-bottom:10px}
+.filter-bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:40px; }
+.ftab { background:transparent; border:1px solid var(--border); color:var(--text2); padding:6px 18px; border-radius:5px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Cairo',sans-serif; transition:all .2s; }
+.ftab:hover { border-color:var(--gold); color:var(--gold); }
+.ftab.on { background:var(--gold); color:#07090f; border-color:var(--gold); }
 
-/* FILTER TABS */
-.filter-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
-.tab{background:var(--card);border:1px solid var(--border);color:var(--text2);padding:8px 20px;border-radius:30px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Cairo',sans-serif;transition:all .25s}
-.tab:hover,.tab.active{background:var(--accent);color:#060d18;border-color:var(--accent)}
+.gal-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.gal-card { border-radius:10px; border:1px solid var(--border); overflow:hidden; transition:border-color .25s, transform .25s; cursor:pointer; }
+.gal-card:hover { border-color:var(--gold); transform:translateY(-3px); }
+.gal-card.hidden { display:none; }
 
-/* ANIMATED SCENE CARDS */
-.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.gal-card{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);transition:all .4s;cursor:pointer;position:relative}
-.gal-card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 16px 48px rgba(200,169,110,.15)}
-.gal-card.hidden{display:none}
-/* Animated scene area */
-.gal-scene{height:220px;position:relative;overflow:hidden;background:var(--bg3)}
-/* Scene: AC on wall */
-.scene-ac-wall{background:linear-gradient(180deg,#0d1e35 0%,#162840 100%)}
-.wall-unit{position:absolute;top:30px;left:50%;transform:translateX(-50%);width:160px;height:55px;background:linear-gradient(180deg,#c0d8f0,#a0c0e0);border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.3)}
-.wall-unit::after{content:'';position:absolute;bottom:-4px;left:10px;right:10px;height:4px;background:#8ab0cc;border-radius:0 0 4px 4px}
-.ac-light{position:absolute;top:8px;right:12px;width:8px;height:8px;border-radius:50%;background:#00e676;box-shadow:0 0 8px #00e676;animation:blink 2s ease infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.ac-vents{position:absolute;bottom:8px;left:10px;right:10px;display:flex;flex-direction:column;gap:3px}
-.ac-vent{height:2px;background:#8ab0cc;border-radius:1px;opacity:.7}
-.cold-wave{position:absolute;border-radius:50%;border:1px solid rgba(160,210,255,.3);animation:expand 2.5s ease-out infinite}
-.w1{width:60px;height:60px;top:80px;left:50%;transform:translateX(-50%);animation-delay:0s}
-.w2{width:100px;height:100px;top:60px;left:50%;transform:translateX(-50%);animation-delay:.8s}
-.w3{width:140px;height:140px;top:40px;left:50%;transform:translateX(-50%);animation-delay:1.6s}
-@keyframes expand{0%{opacity:.6;transform:translateX(-50%) scale(.5)}100%{opacity:0;transform:translateX(-50%) scale(1.5)}}
-/* Floating snowflakes */
-.snowflake{position:absolute;color:rgba(160,210,255,.4);font-size:14px;animation:fall linear infinite}
-@keyframes fall{0%{transform:translateY(-20px) rotate(0deg);opacity:.7}100%{transform:translateY(230px) rotate(360deg);opacity:0}}
+/* Animated scene — no placeholder text, pure CSS */
+.scene { height:200px; position:relative; overflow:hidden; background:var(--bg3); }
+
+/* AC scene */
+.s-ac { background:#0c1828; }
+.s-ac .unit { position:absolute; top:28px; left:50%; transform:translateX(-50%); width:180px; background:#c0d4e8; border-radius:8px; padding:8px; }
+.s-ac .unit-bar { height:3px; background:#8aacc8; border-radius:2px; margin-bottom:6px; }
+.s-ac .unit-panel { background:#0a1520; border-radius:3px; padding:5px 8px; display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+.s-ac .unit-temp { font-size:12px; font-weight:700; color:#00e676; font-family:monospace; }
+.s-ac .unit-dot { width:5px; height:5px; background:#00e676; border-radius:50%; animation:blink 2s ease infinite; }
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.s-ac .slats { display:flex; flex-direction:column; gap:2px; }
+.s-ac .slat { height:2px; background:#7aa0bc; border-radius:1px; opacity:.7; }
+.snowf { position:absolute; font-size:10px; color:rgba(150,200,235,.45); animation:sf linear infinite; }
+@keyframes sf{0%{opacity:.6;transform:translateY(-8px) rotate(0)}100%{opacity:0;transform:translateY(200px) rotate(180deg)}}
+.air-p { position:absolute; border-radius:50%; background:rgba(140,200,235,.4); animation:ap linear infinite; }
+@keyframes ap{0%{opacity:.6}100%{opacity:0;transform:translateY(120px) scale(.1)}}
+
+/* Fridge scene */
+.s-fridge { background:#0a1420; }
+.s-fridge .fridge { position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:90px; height:160px; background:#c4d4e0; border-radius:8px 8px 0 0; }
+.s-fridge .fridge-top { height:56px; background:#b4c4d0; border-radius:8px 8px 0 0; border-bottom:2px solid #90a0ae; }
+.s-fridge .fridge-handle { position:absolute; right:-5px; top:14px; width:4px; height:30px; background:#8090a0; border-radius:2px; }
+.s-fridge .fridge-handle2 { position:absolute; right:-5px; top:76px; width:4px; height:44px; background:#8090a0; border-radius:2px; }
+.cold-dot { position:absolute; border-radius:50%; background:rgba(140,200,235,.35); animation:ap linear infinite; }
+
+/* Washer scene */
+.s-washer { background:#091420; }
+.s-washer .washer { position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:110px; height:130px; background:#c0ccd8; border-radius:8px 8px 0 0; }
+.s-washer .w-top { position:absolute; top:8px; left:8px; right:8px; height:14px; background:#b0bcc8; border-radius:3px; }
+.s-washer .w-drum { position:absolute; top:28px; left:50%; transform:translateX(-50%); width:70px; height:70px; border-radius:50%; background:#1a2a3a; border:2.5px solid #8090a0; }
+.s-washer .w-inner { position:absolute; inset:8px; border-radius:50%; background:#0d1820; border:1.5px solid #4060a0; animation:wspin 3s linear infinite; }
+@keyframes wspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.s-washer .w-inner::before { content:''; position:absolute; top:5px; left:50%; transform:translateX(-50%); width:7px; height:16px; background:#4060a0; border-radius:3px; }
+.bubble { position:absolute; border-radius:50%; background:rgba(140,200,235,.2); border:1px solid rgba(140,200,235,.25); animation:bub linear infinite; }
+@keyframes bub{0%{opacity:.6}100%{opacity:0;transform:translateY(-180px) scale(.2)}}
+
 /* Scene: tech working */
-.scene-tech{background:linear-gradient(135deg,#0a1828,#0f2040)}
-.tech-body{position:absolute;bottom:20px;right:30%;width:60px;height:100px}
-.tech-head{width:30px;height:30px;background:#c87040;border-radius:50%;margin:0 auto;position:relative}
-.tech-head::before{content:'';position:absolute;top:-8px;left:-4px;right:-4px;height:14px;background:#C8A96E;border-radius:10px 10px 0 0}
-.tech-torso{width:50px;height:60px;background:#2C5F8A;border-radius:8px;margin:0 auto}
-.tech-arm{position:absolute;top:38px;left:-20px;width:40px;height:12px;background:#2C5F8A;border-radius:6px;transform:rotate(-30deg);transform-origin:right}
-.tool-spark{position:absolute;top:18px;left:-30px;width:6px;height:6px;background:#fff;border-radius:50%;animation:spark .5s ease infinite alternate}
-@keyframes spark{from{opacity:1;transform:scale(1)}to{opacity:.2;transform:scale(1.8)}}
-.fridge-box{position:absolute;bottom:0;left:10%;width:80px;height:150px;background:linear-gradient(180deg,#c8d8e0,#d8e8f0);border-radius:8px 8px 0 0;border:1px solid #a0b8cc}
-.fridge-door{position:absolute;top:0;left:0;right:0;height:55px;background:#b8c8d8;border-radius:8px 8px 0 0;border-bottom:2px solid #90a8bc}
-/* Scene: washer */
-.scene-washer{background:linear-gradient(135deg,#0d1e2e,#0a1525)}
-.washer-box{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:120px;height:140px;background:linear-gradient(180deg,#c8d0d8,#d8e0e8);border-radius:10px 10px 0 0}
-.washer-circle{position:absolute;top:28px;left:50%;transform:translateX(-50%);width:76px;height:76px;border-radius:50%;background:#1a2a3a;border:3px solid #8090a0}
-.washer-inner{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:#0d1820;border:2px solid #4060a0;animation:wash-spin 3s linear infinite}
-@keyframes wash-spin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-.washer-inner::before{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:8px;height:20px;background:#4060a0;border-radius:4px}
-.bubble{position:absolute;border-radius:50%;background:rgba(160,200,255,.2);border:1px solid rgba(160,200,255,.3);animation:bubble-rise linear infinite}
-@keyframes bubble-rise{0%{transform:translateY(0) scale(1);opacity:.7}100%{transform:translateY(-180px) scale(.3);opacity:0}}
-/* Gal card info */
-.gal-info{padding:18px 20px;background:var(--card)}
-.gal-info h3{font-size:14px;font-weight:700;margin-bottom:4px}
-.gal-info p{font-size:12px;color:var(--text2)}
-.gal-tag{display:inline-block;background:rgba(200,169,110,.08);border:1px solid var(--border);color:var(--accent);font-size:10px;font-weight:600;padding:2px 10px;border-radius:12px;margin-top:8px}
+.s-tech { background:#0a1828; }
+.tech { position:absolute; bottom:10px; }
+.t-head { width:26px; height:26px; background:#c87040; border-radius:50%; margin:0 auto; position:relative; }
+.t-hat { position:absolute; top:-8px; left:-3px; right:-3px; height:10px; background:var(--gold); border-radius:6px 6px 0 0; }
+.t-body { width:44px; height:52px; background:var(--steel2); border-radius:6px; margin:0 auto; display:flex; align-items:center; justify-content:center; }
+.t-badge { font-size:7px; font-weight:700; color:var(--gold); }
+.t-arm { position:absolute; top:30px; }
+.spark { position:absolute; width:5px; height:5px; background:#fff; border-radius:50%; animation:sprk .4s ease infinite alternate; }
+@keyframes sprk{from{opacity:1;transform:scale(1)}to{opacity:.1;transform:scale(2)}}
 
-/* STATS STRIP */
-.stats-strip{background:var(--bg2);padding:50px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
-.strip-num{font-size:36px;font-weight:900;color:var(--accent);display:block}
-.strip-lbl{font-size:13px;color:var(--text2);margin-top:4px}
+.gal-info { padding:16px 18px; background:var(--card); }
+.gal-info h3 { font-size:13px; font-weight:700; margin-bottom:4px; }
+.gal-info p { font-size:12px; color:var(--text2); }
+.gal-tag { display:inline-block; font-size:10px; font-weight:600; color:var(--gold); border:1px solid var(--border2); padding:2px 9px; border-radius:4px; margin-top:7px; }
 
-@media(max-width:900px){.gal-grid{grid-template-columns:repeat(2,1fr)}.strip-grid{grid-template-columns:repeat(2,1fr)}}
+/* stats */
+.stats-band { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:52px 0; }
+.stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+.s-box { background:var(--bg2); padding:24px 16px; text-align:center; }
+.s-num { font-size:32px; font-weight:800; color:var(--gold); display:block; }
+.s-lbl { font-size:12px; color:var(--text2); margin-top:4px; }
+
+@media(max-width:900px){.gal-grid{grid-template-columns:repeat(2,1fr)}.stats-row{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:580px){.gal-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <canvas id="particles"></canvas>
-<nav id="nav" class="nav-glass">
+<nav id="nav">
 <div class="nav-inner">
-  <a href="index.html" class="logo"><div class="logo-txt"><span class="logo-ar">نعمان تبريد</span><span class="logo-en">Nouman Tabreed</span></div></a>
+  <a href="index.html" class="logo"><div class="logo-mark"><span class="logo-mark-text">ن ت</span></div><div class="logo-words"><span class="logo-ar">نعمان <strong>تبريد</strong></span><span class="logo-en">Nouman Tabreed</span></div></a>
   <ul class="nav-links">
     <li><a href="index.html"><span class="ari">الرئيسية</span><span class="eni">Home</span></a></li>
-    <li><a href="services.html"><span class="ari">خدماتنا</span><span class="eni">Services</span></a></li>
-    <li><a href="gallery.html" class="active"><span class="ari">معرض الأعمال</span><span class="eni">Gallery</span></a></li>
+    <li><a href="services.html"><span class="ari">الخدمات</span><span class="eni">Services</span></a></li>
+    <li><a href="gallery.html" class="active"><span class="ari">المعرض</span><span class="eni">Gallery</span></a></li>
     <li><a href="contact.html"><span class="ari">تواصل معنا</span><span class="eni">Contact</span></a></li>
   </ul>
   <div class="nav-ctrl"><button class="cbtn" id="l-btn">EN</button><button class="cbtn" id="t-btn">☀️</button><button class="hbg" id="hbg"><span></span><span></span><span></span></button></div>
@@ -92,154 +97,140 @@
 </nav>
 <div id="mmenu"><ul>
   <li><a href="index.html" class="ml"><span class="ari">الرئيسية</span><span class="eni">Home</span></a></li>
-  <li><a href="services.html" class="ml"><span class="ari">خدماتنا</span><span class="eni">Services</span></a></li>
-  <li><a href="gallery.html" class="ml"><span class="ari">معرض الأعمال</span><span class="eni">Gallery</span></a></li>
+  <li><a href="services.html" class="ml"><span class="ari">الخدمات</span><span class="eni">Services</span></a></li>
+  <li><a href="gallery.html" class="ml"><span class="ari">المعرض</span><span class="eni">Gallery</span></a></li>
   <li><a href="contact.html" class="ml"><span class="ari">تواصل معنا</span><span class="eni">Contact</span></a></li>
 </ul></div>
 
 <div class="page-hero">
-  <div class="page-hero-bg"></div>
-  <div class="wrap page-hero-content rev">
-    <span class="s-label ar">أعمالنا</span><span class="s-label en">Our Work</span>
-    <h1 class="ar">معرض <span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">الأعمال</span></h1>
-    <h1 class="en"><span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Work</span> Gallery</h1>
-    <p class="ar">مشاريعنا المنجزة في أحياء الرياض — سيتم إضافة صور حقيقية قريباً.</p>
-    <p class="en">Our completed projects across Riyadh — real photos will be added soon.</p>
-  </div>
+<div class="wrap page-hero-inner rev">
+  <div class="s-eyebrow ar">أعمالنا</div><div class="s-eyebrow en">Our Work</div>
+  <h1 class="ar">معرض <span class="gold-text">الأعمال</span></h1>
+  <h1 class="en"><span class="gold-text">Work</span> Gallery</h1>
+  <p class="ar">مشاريعنا المنجزة في أحياء الرياض — سيتم إضافة صور حقيقية قريباً.</p>
+  <p class="en">Our completed projects across Riyadh — real photos will be added soon.</p>
+</div>
 </div>
 
 <section class="sec">
 <div class="wrap">
-  <!-- Filter -->
-  <div class="filter-tabs rev">
-    <button class="tab active" onclick="filter('all')"><span class="ari">الكل</span><span class="eni">All</span></button>
-    <button class="tab" onclick="filter('ac')"><span class="ari">مكيفات</span><span class="eni">AC</span></button>
-    <button class="tab" onclick="filter('fridge')"><span class="ari">ثلاجات</span><span class="eni">Fridge</span></button>
-    <button class="tab" onclick="filter('washer')"><span class="ari">غسالات</span><span class="eni">Washers</span></button>
+  <div class="filter-bar rev">
+    <button class="ftab on" onclick="doFilter('all',this)"><span class="ari">الكل</span><span class="eni">All</span></button>
+    <button class="ftab" onclick="doFilter('ac',this)"><span class="ari">مكيفات</span><span class="eni">AC</span></button>
+    <button class="ftab" onclick="doFilter('fridge',this)"><span class="ari">ثلاجات</span><span class="eni">Fridge</span></button>
+    <button class="ftab" onclick="doFilter('washer',this)"><span class="ari">غسالات</span><span class="eni">Washers</span></button>
   </div>
 
   <div class="gal-grid">
-    <!-- AC cards -->
+    <!-- AC 1 -->
     <div class="gal-card rev d1" data-cat="ac">
-      <div class="gal-scene scene-ac-wall">
-        <div class="wall-unit"><div class="ac-light"></div><div class="ac-vents"><div class="ac-vent"></div><div class="ac-vent"></div><div class="ac-vent"></div></div></div>
-        <div class="cold-wave w1"></div><div class="cold-wave w2"></div><div class="cold-wave w3"></div>
-        <span class="snowflake" style="left:20%;animation-duration:3s;animation-delay:0s">❄</span>
-        <span class="snowflake" style="left:50%;animation-duration:4s;animation-delay:1s">❄</span>
-        <span class="snowflake" style="left:75%;animation-duration:3.5s;animation-delay:.5s">❄</span>
-        <span class="snowflake" style="left:35%;animation-duration:2.8s;animation-delay:1.5s">❄</span>
+      <div class="scene s-ac">
+        <div class="unit"><div class="unit-bar"></div><div class="unit-panel"><span class="unit-temp">18°C</span><div class="unit-dot"></div></div><div class="slats"><div class="slat"></div><div class="slat"></div><div class="slat"></div><div class="slat"></div></div></div>
+        <div class="air-p" style="left:25%;top:95px;width:7px;height:7px;animation-duration:2.2s;animation-delay:0s"></div>
+        <div class="air-p" style="left:45%;top:95px;width:5px;height:5px;animation-duration:2.8s;animation-delay:.5s"></div>
+        <div class="air-p" style="left:65%;top:95px;width:6px;height:6px;animation-duration:2.5s;animation-delay:1s"></div>
+        <span class="snowf" style="left:20%;animation-duration:3.5s;animation-delay:0s">❄</span>
+        <span class="snowf" style="left:50%;animation-duration:4s;animation-delay:1s">❄</span>
+        <span class="snowf" style="left:74%;animation-duration:3s;animation-delay:.5s">❄</span>
       </div>
-      <div class="gal-info"><h3 class="ar">تركيب مكيف سبليت — حي النرجس</h3><h3 class="en">Split AC Install — Al Narjis</h3><p class="ar">تركيب وحدة سبليت ٢٤٠٠٠ وحدة مع شبكة تصريف.</p><p class="en">24,000 BTU split unit installation with drainage network.</p><span class="gal-tag ar">تركيب</span><span class="gal-tag en">Installation</span></div>
+      <div class="gal-info"><h3 class="ar">تركيب مكيف سبليت — حي النرجس</h3><h3 class="en">Split AC Install — Al Narjis</h3><p class="ar">٢٤٠٠٠ وحدة مع شبكة تصريف كاملة.</p><p class="en">24,000 BTU unit with full drainage network.</p><span class="gal-tag ar">تركيب</span><span class="gal-tag en">Installation</span></div>
     </div>
+    <!-- AC 2 -->
     <div class="gal-card rev d2" data-cat="ac">
-      <div class="gal-scene scene-ac-wall" style="background:linear-gradient(180deg,#0f2a40,#1a3550)">
-        <div class="wall-unit" style="background:linear-gradient(180deg,#d0e8ff,#b8d8f0)"><div class="ac-light" style="background:#C8A96E;box-shadow:0 0 8px #C8A96E"></div><div class="ac-vents"><div class="ac-vent"></div><div class="ac-vent"></div><div class="ac-vent"></div></div></div>
-        <div class="cold-wave w1"></div><div class="cold-wave w2"></div>
-        <span class="snowflake" style="left:30%;animation-duration:2.5s">❄</span>
-        <span class="snowflake" style="left:60%;animation-duration:3.8s;animation-delay:.7s">❄</span>
-        <span class="snowflake" style="left:80%;animation-duration:3.2s;animation-delay:1.2s">❄</span>
+      <div class="scene s-ac" style="background:#0d1f38">
+        <div class="unit" style="background:#b8cce0"><div class="unit-bar" style="background:#7a9ab8"></div><div class="unit-panel"><span class="unit-temp">20°C</span><div class="unit-dot" style="background:var(--gold);animation:none;opacity:.8"></div></div><div class="slats"><div class="slat"></div><div class="slat"></div><div class="slat"></div><div class="slat"></div></div></div>
+        <div class="air-p" style="left:30%;top:95px;width:6px;height:6px;animation-duration:2.6s"></div>
+        <div class="air-p" style="left:55%;top:95px;width:5px;height:5px;animation-duration:3s;animation-delay:.7s"></div>
+        <span class="snowf" style="left:35%;animation-duration:3.8s">❄</span>
+        <span class="snowf" style="left:65%;animation-duration:3.2s;animation-delay:.8s">❄</span>
       </div>
-      <div class="gal-info"><h3 class="ar">صيانة مكيف مركزي — حي الملقا</h3><h3 class="en">Central AC Maintenance — Al Malqa</h3><p class="ar">صيانة شاملة وشحن غاز لوحدة مركزية.</p><p class="en">Full maintenance and gas recharge for central unit.</p><span class="gal-tag ar">صيانة</span><span class="gal-tag en">Maintenance</span></div>
+      <div class="gal-info"><h3 class="ar">صيانة مكيف مركزي — حي الملقا</h3><h3 class="en">Central AC Maintenance — Al Malqa</h3><p class="ar">صيانة شاملة وشحن غاز لوحدة مركزية.</p><p class="en">Full service and gas recharge for central unit.</p><span class="gal-tag ar">صيانة</span><span class="gal-tag en">Maintenance</span></div>
     </div>
+    <!-- AC 3 tech -->
     <div class="gal-card rev d3" data-cat="ac">
-      <div class="gal-scene scene-tech">
-        <div class="tech-body">
-          <div class="tech-head"></div>
-          <div class="tech-torso" style="position:relative"><div class="tech-arm"><div class="tool-spark"></div></div></div>
+      <div class="scene s-tech">
+        <div class="unit" style="position:absolute;top:22px;left:12%;width:140px;background:#b8cce0"><div class="unit-bar"></div><div class="unit-panel"><span class="unit-temp">ERR</span><div class="unit-dot" style="background:#f44;animation:blink .8s ease infinite"></div></div><div class="slats"><div class="slat"></div><div class="slat"></div><div class="slat"></div></div></div>
+        <div class="tech" style="right:18%;bottom:0">
+          <div class="t-head"><div class="t-hat"></div></div>
+          <div class="t-body"><span class="t-badge">NT</span></div>
+          <div class="t-arm" style="left:-22px"><div class="spark" style="left:-4px;top:-4px"></div></div>
         </div>
-        <div class="wall-unit" style="position:absolute;top:20px;left:15%;width:120px;height:45px"><div class="ac-light"></div><div class="ac-vents"><div class="ac-vent"></div><div class="ac-vent"></div></div></div>
-        <span class="snowflake" style="left:10%;animation-duration:3s">❄</span>
-        <span class="snowflake" style="left:60%;animation-duration:4s;animation-delay:1s">❄</span>
       </div>
-      <div class="gal-info"><h3 class="ar">إصلاح كمبروسر — حي الياسمين</h3><h3 class="en">Compressor Repair — Al Yasmin</h3><p class="ar">تشخيص وإصلاح كمبروسر معطل خلال ساعتين.</p><p class="en">Diagnosed and repaired faulty compressor in 2 hours.</p><span class="gal-tag ar">إصلاح</span><span class="gal-tag en">Repair</span></div>
+      <div class="gal-info"><h3 class="ar">إصلاح كمبروسر — حي الياسمين</h3><h3 class="en">Compressor Repair — Al Yasmin</h3><p class="ar">تشخيص وإصلاح كمبروسر في ساعتين.</p><p class="en">Diagnosed and fixed compressor in 2 hours.</p><span class="gal-tag ar">إصلاح</span><span class="gal-tag en">Repair</span></div>
     </div>
-    <!-- Fridge cards -->
+    <!-- FRIDGE 1 -->
     <div class="gal-card rev d1" data-cat="fridge">
-      <div class="gal-scene scene-tech" style="background:linear-gradient(135deg,#0a1525,#0d2030)">
-        <div class="fridge-box">
-          <div class="fridge-door"></div>
-          <div style="position:absolute;right:-8px;top:20px;width:6px;height:40px;background:#8090a0;border-radius:3px"></div>
+      <div class="scene s-fridge">
+        <div class="fridge"><div class="fridge-top"></div><div class="fridge-handle"></div><div class="fridge-handle2"></div></div>
+        <div class="tech" style="right:12%;bottom:0">
+          <div class="t-head" style="background:#d4956a"><div class="t-hat"></div></div>
+          <div class="t-body" style="background:var(--steel)"><span class="t-badge">NT</span></div>
         </div>
-        <div class="tech-body" style="right:15%">
-          <div class="tech-head" style="background:#d4956a"></div>
-          <div class="tech-torso"></div>
-          <div class="tech-arm"></div>
-        </div>
-        <span class="snowflake" style="left:25%;animation-duration:3s;color:rgba(100,200,255,.5)">❄</span>
-        <span class="snowflake" style="left:50%;animation-duration:4s;animation-delay:1s;color:rgba(100,200,255,.5)">❄</span>
+        <div class="cold-dot" style="left:22%;bottom:60px;width:8px;height:8px;animation-duration:2.5s;animation-delay:0s"></div>
+        <div class="cold-dot" style="left:40%;bottom:80px;width:6px;height:6px;animation-duration:3s;animation-delay:.6s"></div>
+        <span class="snowf" style="left:25%;animation-duration:3.5s;color:rgba(150,200,235,.4)">❄</span>
+        <span class="snowf" style="left:55%;animation-duration:4s;animation-delay:1s;color:rgba(150,200,235,.4)">❄</span>
       </div>
       <div class="gal-info"><h3 class="ar">إصلاح ثلاجة سامسونج — حي العليا</h3><h3 class="en">Samsung Fridge Repair — Al Olaya</h3><p class="ar">تغيير ثرموستات وإصلاح نظام التبريد.</p><p class="en">Thermostat replacement and cooling system repair.</p><span class="gal-tag ar">ثلاجات</span><span class="gal-tag en">Fridge</span></div>
     </div>
+    <!-- FRIDGE 2 -->
     <div class="gal-card rev d2" data-cat="fridge">
-      <div class="gal-scene" style="background:linear-gradient(135deg,#091520,#0f2035)">
-        <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:100px;height:160px;background:linear-gradient(180deg,#d0e0ee,#c0d0de);border-radius:8px 8px 0 0">
-          <div style="height:60px;background:#b0c0ce;border-radius:8px 8px 0 0;border-bottom:2px solid #90a0ae"></div>
-          <div style="position:absolute;right:-6px;top:15px;width:5px;height:35px;background:#8090a0;border-radius:3px"></div>
-          <div style="position:absolute;right:-6px;top:78px;width:5px;height:50px;background:#8090a0;border-radius:3px"></div>
-        </div>
-        <span class="snowflake" style="left:20%;animation-duration:3.5s;color:rgba(100,200,255,.5)">❄</span>
-        <span class="snowflake" style="left:70%;animation-duration:2.8s;animation-delay:.6s;color:rgba(100,200,255,.5)">❄</span>
-        <span class="snowflake" style="left:45%;animation-duration:4.2s;animation-delay:1.3s;color:rgba(100,200,255,.5)">❄</span>
+      <div class="scene s-fridge" style="background:#0c1830">
+        <div class="fridge" style="background:#b8c8d8;left:35%;transform:none"><div class="fridge-top" style="background:#a8b8c8"></div><div class="fridge-handle"></div><div class="fridge-handle2"></div></div>
+        <div class="cold-dot" style="left:20%;bottom:70px;width:10px;height:10px;animation-duration:2.8s"></div>
+        <div class="cold-dot" style="left:55%;bottom:50px;width:7px;height:7px;animation-duration:3.2s;animation-delay:.8s"></div>
+        <div class="cold-dot" style="left:75%;bottom:90px;width:6px;height:6px;animation-duration:2.6s;animation-delay:.4s"></div>
+        <span class="snowf" style="left:15%;animation-duration:3.8s;color:rgba(150,200,235,.4)">❄</span>
+        <span class="snowf" style="left:70%;animation-duration:3.2s;animation-delay:1.2s;color:rgba(150,200,235,.4)">❄</span>
       </div>
-      <div class="gal-info"><h3 class="ar">صيانة ثلاجة LG — حي الروضة</h3><h3 class="en">LG Fridge Service — Al Rawdha</h3><p class="ar">تنظيف كامل وشحن غاز وإصلاح باب.</p><p class="en">Full cleaning, gas recharge and door repair.</p><span class="gal-tag ar">ثلاجات</span><span class="gal-tag en">Fridge</span></div>
+      <div class="gal-info"><h3 class="ar">صيانة ثلاجة LG — حي الروضة</h3><h3 class="en">LG Fridge Service — Al Rawdha</h3><p class="ar">تنظيف كامل، شحن غاز، إصلاح باب.</p><p class="en">Full clean, gas recharge, door repair.</p><span class="gal-tag ar">ثلاجات</span><span class="gal-tag en">Fridge</span></div>
     </div>
-    <!-- Washer cards -->
+    <!-- WASHER -->
     <div class="gal-card rev d1" data-cat="washer">
-      <div class="gal-scene scene-washer">
-        <div class="washer-box">
-          <div style="position:absolute;top:8px;left:10px;right:10px;height:16px;background:#b0bac8;border-radius:4px"></div>
-          <div class="washer-circle"><div class="washer-inner"></div></div>
-          <div style="position:absolute;bottom:8px;left:10px;width:20px;height:10px;background:#8090a0;border-radius:3px"></div>
-        </div>
-        <div class="bubble" style="left:20%;bottom:0;width:12px;height:12px;animation-duration:2s;animation-delay:0s"></div>
-        <div class="bubble" style="left:40%;bottom:0;width:8px;height:8px;animation-duration:2.5s;animation-delay:.5s"></div>
-        <div class="bubble" style="left:65%;bottom:0;width:14px;height:14px;animation-duration:3s;animation-delay:1s"></div>
-        <div class="bubble" style="left:80%;bottom:0;width:6px;height:6px;animation-duration:1.8s;animation-delay:1.5s"></div>
+      <div class="scene s-washer">
+        <div class="washer"><div class="w-top"></div><div class="w-drum"><div class="w-inner"></div></div></div>
+        <div class="bubble" style="left:18%;bottom:0;width:10px;height:10px;animation-duration:2.2s"></div>
+        <div class="bubble" style="left:38%;bottom:0;width:7px;height:7px;animation-duration:2.8s;animation-delay:.5s"></div>
+        <div class="bubble" style="left:62%;bottom:0;width:12px;height:12px;animation-duration:3.2s;animation-delay:1s"></div>
+        <div class="bubble" style="left:78%;bottom:0;width:6px;height:6px;animation-duration:1.9s;animation-delay:1.5s"></div>
       </div>
-      <div class="gal-info"><h3 class="ar">إصلاح غسالة — حي الحمراء</h3><h3 class="en">Washer Repair — Al Hamra</h3><p class="ar">تغيير موتور وإصلاح لوحة التحكم الإلكترونية.</p><p class="en">Motor replacement and electronic control board repair.</p><span class="gal-tag ar">غسالات</span><span class="gal-tag en">Washer</span></div>
+      <div class="gal-info"><h3 class="ar">إصلاح غسالة — حي الحمراء</h3><h3 class="en">Washer Repair — Al Hamra</h3><p class="ar">تغيير موتور وإصلاح لوحة التحكم.</p><p class="en">Motor replacement and control board repair.</p><span class="gal-tag ar">غسالات</span><span class="gal-tag en">Washer</span></div>
     </div>
   </div>
 </div>
 </section>
 
-<!-- STATS STRIP -->
-<div class="stats-strip">
+<div class="stats-band">
 <div class="wrap">
-  <div class="strip-grid">
-    <div class="rev d1"><span class="strip-num counter" data-target="10" data-plus="true">0</span><div class="strip-lbl ar">سنوات خبرة</div><div class="strip-lbl en">Years Experience</div></div>
-    <div class="rev d2"><span class="strip-num counter" data-target="500" data-plus="true">0</span><div class="strip-lbl ar">مشروع منجز</div><div class="strip-lbl en">Projects Done</div></div>
-    <div class="rev d3"><span class="strip-num counter" data-target="50" data-plus="true">0</span><div class="strip-lbl ar">حي مُخدَّم</div><div class="strip-lbl en">Districts Served</div></div>
-    <div class="rev d4"><span class="strip-num counter" data-target="100" data-percent="true">0</span><div class="strip-lbl ar">نسبة الرضا</div><div class="strip-lbl en">Satisfaction Rate</div></div>
+  <div class="stats-row">
+    <div class="s-box rev d1"><span class="s-num counter" data-target="10" data-plus="true">0</span><div class="s-lbl ar">سنوات خبرة</div><div class="s-lbl en">Years Experience</div></div>
+    <div class="s-box rev d2"><span class="s-num counter" data-target="500" data-plus="true">0</span><div class="s-lbl ar">مشروع منجز</div><div class="s-lbl en">Projects Done</div></div>
+    <div class="s-box rev d3"><span class="s-num counter" data-target="50" data-plus="true">0</span><div class="s-lbl ar">حي مُخدَّم</div><div class="s-lbl en">Districts Served</div></div>
+    <div class="s-box rev d4"><span class="s-num counter" data-target="100" data-pct="true">0</span><div class="s-lbl ar">نسبة الرضا</div><div class="s-lbl en">Satisfaction Rate</div></div>
   </div>
 </div>
 </div>
 
-<div class="glow-line"></div>
+<div class="divider"></div>
 <footer>
 <div class="wrap">
   <div class="foot-grid">
-    <div class="foot-brand"><div class="logo-txt"><span class="logo-ar">نعمان تبريد</span><span class="logo-en" style="-webkit-text-fill-color:var(--text2)">Nouman Tabreed</span></div><p class="ar">خبراء التبريد والصيانة في الرياض.</p><p class="en">AC & appliance experts in Riyadh.</p></div>
-    <div class="foot-col"><h4 class="ar">روابط سريعة</h4><h4 class="en">Quick Links</h4><ul><li><a href="index.html"><span class="ari">الرئيسية</span><span class="eni">Home</span></a></li><li><a href="services.html"><span class="ari">خدماتنا</span><span class="eni">Services</span></a></li><li><a href="gallery.html"><span class="ari">معرض الأعمال</span><span class="eni">Gallery</span></a></li><li><a href="contact.html"><span class="ari">تواصل معنا</span><span class="eni">Contact</span></a></li></ul></div>
-    <div class="foot-col"><h4 class="ar">تواصل معنا</h4><h4 class="en">Contact</h4><ul><li><a href="tel:+966XXXXXXXXX">📞 +966 XX XXX XXXX</a></li><li><a href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener">💬 WhatsApp</a></li></ul></div>
+    <div class="foot-brand"><a href="index.html" class="logo" style="margin-bottom:14px"><div class="logo-mark"><span class="logo-mark-text">ن ت</span></div><div class="logo-words"><span class="logo-ar">نعمان <strong>تبريد</strong></span><span class="logo-en">Nouman Tabreed</span></div></a><p class="ar">خبراء التبريد والصيانة في الرياض.</p><p class="en">AC &amp; appliance experts in Riyadh.</p></div>
+    <div class="foot-col"><h4 class="ar">روابط سريعة</h4><h4 class="en">Quick Links</h4><ul><li><a href="index.html"><span class="ari">الرئيسية</span><span class="eni">Home</span></a></li><li><a href="services.html"><span class="ari">الخدمات</span><span class="eni">Services</span></a></li><li><a href="gallery.html"><span class="ari">المعرض</span><span class="eni">Gallery</span></a></li><li><a href="contact.html"><span class="ari">تواصل معنا</span><span class="eni">Contact</span></a></li></ul></div>
+    <div class="foot-col"><h4 class="ar">تواصل</h4><h4 class="en">Contact</h4><ul><li><a href="tel:+966XXXXXXXXX">+966 XX XXX XXXX</a></li><li><a href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
   </div>
-  <div class="foot-bottom"><p class="foot-copy"><span class="ari">© ٢٠٢٥ نعمان تبريد.</span><span class="eni">© 2025 Nouman Tabreed.</span></p><div class="foot-badge"><span class="ari">موقع آمن</span><span class="eni">Secure Site</span></div></div>
+  <div class="foot-bottom"><span class="foot-copy"><span class="ari">© ٢٠٢٥ نعمان تبريد.</span><span class="eni">© 2025 Nouman Tabreed.</span></span><span class="foot-secure"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg><span class="ari">موقع آمن</span><span class="eni">Secure</span></span></div>
 </div>
 </footer>
-<a id="fwa" href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener noreferrer">
-  <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  <span class="wa-label ari">واتساب</span><span class="wa-label eni">WhatsApp</span>
-</a>
-<div id="mob-bar">
-  <a href="tel:+966XXXXXXXXX" class="mob-call">📞 <span class="ari">اتصل الآن</span><span class="eni">Call Now</span></a>
-  <a href="https://wa.me/966XXXXXXXXX" class="mob-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
-</div>
+<a id="fwa" href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="wa-label ari">واتساب</span><span class="wa-label eni">WhatsApp</span></a>
+<div id="mob-bar"><a href="tel:+966XXXXXXXXX" class="mob-call">📞 <span class="ari">اتصل الآن</span><span class="eni">Call Now</span></a><a href="https://wa.me/966XXXXXXXXX" class="mob-wa" target="_blank" rel="noopener">💬 WhatsApp</a></div>
 <script src="script.js"></script>
 <script>
-function filter(cat){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  event.target.classList.add('active');
-  document.querySelectorAll('.gal-card').forEach(c=>{
-    c.classList.toggle('hidden',cat!=='all'&&c.dataset.cat!==cat);
+function doFilter(cat, btn) {
+  document.querySelectorAll('.ftab').forEach(t => t.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.gal-card').forEach(c => {
+    c.classList.toggle('hidden', cat !== 'all' && c.dataset.cat !== cat);
   });
 }
 </script>

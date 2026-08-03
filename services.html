@@ -2,69 +2,54 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>خدماتنا | نعمان تبريد</title>
+<title>الخدمات | نعمان تبريد</title>
 <meta name="description" content="خدمات تركيب وإصلاح وصيانة المكيفات والثلاجات والغسالات في الرياض — نعمان تبريد"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="style.css"/>
 <style>
-/* ── PAGE HERO ── */
-.page-hero{min-height:38vh;display:flex;align-items:flex-end;padding-top:68px;position:relative;overflow:hidden}
-.page-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(44,95,138,.2) 0%,rgba(200,169,110,.06) 100%)}
-.page-hero-orb{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(44,95,138,.18),transparent 70%);top:-200px;left:-100px;animation:orb-f 10s ease-in-out infinite}
-@keyframes orb-f{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
-.page-hero-content{position:relative;z-index:1;padding:50px 0 48px}
-.page-hero-content h1{font-size:clamp(28px,5vw,52px);font-weight:900;line-height:1.2;margin-bottom:10px}
-.page-hero-content p{font-size:15px;color:var(--text2);max-width:480px;line-height:1.8}
+/* 3D FLIP CARDS */
+.srv-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.card-wrap { perspective: 900px; height: 320px; }
+.card-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform .6s cubic-bezier(.4,0,.2,1); }
+.card-wrap:hover .card-inner { transform: rotateY(180deg); }
+.card-front, .card-back { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 10px; border: 1px solid var(--border); padding: 28px 24px; }
+.card-front { background: var(--card); display: flex; flex-direction: column; }
+.card-back { background: var(--card2); transform: rotateY(180deg); display: flex; flex-direction: column; justify-content: center; border-color: var(--gold); }
+.card-ico { font-size: 42px; margin-bottom: 16px; display: block; }
+.card-num { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px; }
+.card-front h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.card-front p { font-size: 13px; color: var(--text2); line-height: 1.7; flex: 1; }
+.card-hint { font-size: 10px; color: var(--text3); margin-top: 14px; display: flex; align-items: center; gap: 5px; }
+.card-hint::before { content: '↺'; font-size: 13px; color: var(--gold); }
+.card-back h3 { font-size: 17px; font-weight: 700; color: var(--gold); margin-bottom: 10px; }
+.card-back p { font-size: 13px; color: var(--text2); line-height: 1.8; margin-bottom: 18px; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.tag { font-size: 11px; font-weight: 600; color: var(--text2); border: 1px solid var(--border2); padding: 3px 10px; border-radius: 4px; }
+.card-back a { display: inline-flex; align-items: center; gap: 7px; background: var(--gold); color: #07090f; font-size: 13px; font-weight: 700; padding: 9px 20px; border-radius: 7px; font-family: 'Cairo',sans-serif; transition: background .2s; align-self: flex-start; }
+.card-back a:hover { background: var(--gold2); }
 
-/* ── 3D FLIP CARDS ── */
-.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card-wrap{perspective:1000px;height:340px}
-.card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.4,0,.2,1)}
-.card-wrap:hover .card-inner{transform:rotateY(180deg)}
-.card-front,.card-back{position:absolute;inset:0;border-radius:var(--r);backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:32px 26px;border:1px solid var(--border)}
-.card-front{background:var(--card);display:flex;flex-direction:column;justify-content:flex-end}
-.card-back{background:linear-gradient(135deg,var(--blue2),var(--bg3));transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border-color:var(--accent)}
-/* Animated icon scene on front */
-.card-scene{flex:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.scene-icon{font-size:64px;animation:icon-float 3s ease-in-out infinite}
-@keyframes icon-float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.05)}}
-.scene-glow{position:absolute;width:120px;height:120px;border-radius:50%;filter:blur(30px);animation:glow-pulse 3s ease infinite}
-@keyframes glow-pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.8;transform:scale(1.2)}}
-.card-front h3{font-size:17px;font-weight:700;margin-bottom:6px}
-.card-front p{font-size:12px;color:var(--text2);line-height:1.6}
-.flip-hint{font-size:10px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px}
-.card-back .back-ico{font-size:48px;margin-bottom:16px}
-.card-back h3{font-size:18px;font-weight:700;color:var(--accent);margin-bottom:12px}
-.card-back p{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:20px}
-.card-back .tag{display:inline-block;background:rgba(200,169,110,.12);border:1px solid var(--border2);color:var(--accent);font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;margin:3px}
-.card-back .cta-link{display:inline-flex;align-items:center;gap:7px;background:var(--accent);color:#060d18;font-weight:700;font-size:13px;padding:10px 22px;border-radius:9px;margin-top:12px;font-family:'Cairo',sans-serif;transition:background .2s}
-.card-back .cta-link:hover{background:var(--accent2)}
+/* PROCESS */
+#process { background: var(--bg2); }
+.proc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+.proc-item { padding: 28px 20px; }
+.proc-n { font-size: 36px; font-weight: 900; color: var(--border2); margin-bottom: 12px; font-family: 'Inter',sans-serif; line-height: 1; }
+.proc-item h3 { font-size: 15px; font-weight: 700; margin-bottom: 7px; }
+.proc-item p { font-size: 13px; color: var(--text2); line-height: 1.75; }
 
-/* ── PROCESS ── */
-#process{background:var(--bg2)}
-.proc-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-.proc-timeline::before{content:'';position:absolute;top:32px;right:12.5%;left:12.5%;height:2px;background:linear-gradient(90deg,var(--accent),var(--blue),var(--accent));opacity:.3}
-[dir=ltr] .proc-timeline::before{right:12.5%;left:12.5%}
-.proc-step{text-align:center;padding:0 16px}
-.proc-num{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--blue2),var(--bg3));border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;font-weight:900;color:var(--accent);position:relative;z-index:1;transition:all .3s}
-.proc-step:hover .proc-num{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#060d18;border-color:var(--accent2);transform:scale(1.1)}
-.proc-step h3{font-size:14px;font-weight:700;margin-bottom:6px}
-.proc-step p{font-size:12px;color:var(--text2);line-height:1.7}
-
-@media(max-width:900px){.srv-grid{grid-template-columns:repeat(2,1fr)}.proc-timeline{grid-template-columns:repeat(2,1fr)}.proc-timeline::before{display:none}}
-@media(max-width:580px){.srv-grid{grid-template-columns:1fr}.card-wrap{height:auto}.card-inner{transform:none!important}.card-back{position:static;transform:none;margin-top:12px;border-radius:var(--r)}.card-front,.card-back{position:static;backface-visibility:visible}.card-wrap{perspective:none;height:auto}}
+@media(max-width:900px){ .srv-grid{grid-template-columns:repeat(2,1fr)} .proc-grid{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:580px){ .srv-grid{grid-template-columns:1fr} .card-wrap{height:auto} .card-inner{transform:none!important} .card-front{position:static;backface-visibility:visible} .card-back{position:static;transform:none;backface-visibility:visible;margin-top:2px;border-radius:10px} .card-wrap{perspective:none;height:auto} }
 </style>
 </head>
 <body>
 <canvas id="particles"></canvas>
-<nav id="nav" class="nav-glass">
+<nav id="nav">
 <div class="nav-inner">
-  <a href="index.html" class="logo"><div class="logo-txt"><span class="logo-ar">نعمان تبريد</span><span class="logo-en">Nouman Tabreed</span></div></a>
+  <a href="index.html" class="logo"><div class="logo-mark"><span class="logo-mark-text">ن ت</span></div><div class="logo-words"><span class="logo-ar">نعمان <strong>تبريد</strong></span><span class="logo-en">Nouman Tabreed</span></div></a>
   <ul class="nav-links">
     <li><a href="index.html"><span class="ari">الرئيسية</span><span class="eni">Home</span></a></li>
-    <li><a href="services.html" class="active"><span class="ari">خدماتنا</span><span class="eni">Services</span></a></li>
-    <li><a href="gallery.html"><span class="ari">معرض الأعمال</span><span class="eni">Gallery</span></a></li>
+    <li><a href="services.html" class="active"><span class="ari">الخدمات</span><span class="eni">Services</span></a></li>
+    <li><a href="gallery.html"><span class="ari">المعرض</span><span class="eni">Gallery</span></a></li>
     <li><a href="contact.html"><span class="ari">تواصل معنا</span><span class="eni">Contact</span></a></li>
   </ul>
   <div class="nav-ctrl"><button class="cbtn" id="l-btn">EN</button><button class="cbtn" id="t-btn">☀️</button><button class="hbg" id="hbg"><span></span><span></span><span></span></button></div>
@@ -72,199 +57,86 @@
 </nav>
 <div id="mmenu"><ul>
   <li><a href="index.html" class="ml"><span class="ari">الرئيسية</span><span class="eni">Home</span></a></li>
-  <li><a href="services.html" class="ml"><span class="ari">خدماتنا</span><span class="eni">Services</span></a></li>
-  <li><a href="gallery.html" class="ml"><span class="ari">معرض الأعمال</span><span class="eni">Gallery</span></a></li>
+  <li><a href="services.html" class="ml"><span class="ari">الخدمات</span><span class="eni">Services</span></a></li>
+  <li><a href="gallery.html" class="ml"><span class="ari">المعرض</span><span class="eni">Gallery</span></a></li>
   <li><a href="contact.html" class="ml"><span class="ari">تواصل معنا</span><span class="eni">Contact</span></a></li>
 </ul></div>
 
-<!-- PAGE HERO -->
 <div class="page-hero">
-  <div class="page-hero-bg"></div>
-  <div class="page-hero-orb"></div>
-  <div class="wrap page-hero-content rev">
-    <span class="s-label ar">ما نقدمه</span><span class="s-label en">What We Offer</span>
-    <h1 class="ar">خدماتنا <span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">الاحترافية</span></h1>
-    <h1 class="en">Our <span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Professional</span> Services</h1>
-    <p class="ar">اقلب البطاقة لتعرف أكثر عن كل خدمة — خبرة حقيقية وضمان كامل.</p>
-    <p class="en">Hover each card to learn more — real expertise with full guarantee.</p>
-  </div>
+<div class="wrap page-hero-inner rev">
+  <div class="s-eyebrow ar">ما نقدمه</div><div class="s-eyebrow en">What We Offer</div>
+  <h1 class="ar">خدماتنا <span class="gold-text">الاحترافية</span></h1>
+  <h1 class="en">Our <span class="gold-text">Professional</span> Services</h1>
+  <p class="ar">مرّر على البطاقة لمعرفة التفاصيل — ضمان كامل على جميع الأعمال.</p>
+  <p class="en">Hover each card for full details — all work fully guaranteed.</p>
+</div>
 </div>
 
-<!-- 3D FLIP SERVICE CARDS -->
 <section class="sec">
 <div class="wrap">
   <div class="srv-grid">
+    <div class="card-wrap rev d1"><div class="card-inner">
+      <div class="card-front"><span class="card-ico">❄️</span><div class="card-num">01</div><h3 class="ar">تركيب المكيفات</h3><h3 class="en">AC Installation</h3><p class="ar">تركيب احترافي لجميع أنواع المكيفات مع ضمان كامل.</p><p class="en">Professional installation for all AC types with full guarantee.</p><div class="card-hint ar">مرّر للتفاصيل</div><div class="card-hint en">Hover for details</div></div>
+      <div class="card-back"><h3 class="ar">تركيب المكيفات</h3><h3 class="en">AC Installation</h3><p class="ar">نركب سبليت، مركزي، كاسيت، وشباك — مع اختبار كامل وضمان على التركيب والتشغيل.</p><p class="en">We install split, central, cassette & window units — full testing and installation guarantee.</p><div class="card-tags"><span class="tag">Split</span><span class="tag ar">مركزي</span><span class="tag">Cassette</span></div><a href="contact.html"><span class="ari">احجز الآن</span><span class="eni">Book Now</span></a></div>
+    </div></div>
 
-    <div class="card-wrap rev d1">
-      <div class="card-inner">
-        <div class="card-front">
-          <div class="card-scene">
-            <div class="scene-glow" style="background:rgba(44,95,138,.6)"></div>
-            <div class="scene-icon">❄️</div>
-          </div>
-          <h3 class="ar">تركيب المكيفات</h3><h3 class="en">AC Installation</h3>
-          <p class="ar">تركيب احترافي لجميع أنواع المكيفات.</p><p class="en">Professional installation for all AC types.</p>
-          <div class="flip-hint ar">🔄 اقلب لمعرفة المزيد</div><div class="flip-hint en">🔄 Hover to learn more</div>
-        </div>
-        <div class="card-back">
-          <div class="back-ico">❄️</div>
-          <h3 class="ar">تركيب المكيفات</h3><h3 class="en">AC Installation</h3>
-          <p class="ar">نركب جميع أنواع المكيفات: سبليت، مركزي، كاسيت، شباك — مع ضمان التشغيل الكامل.</p>
-          <p class="en">We install all AC types: split, central, cassette, window — with full operational guarantee.</p>
-          <div><span class="tag ar">سبليت</span><span class="tag en">Split</span><span class="tag ar">مركزي</span><span class="tag en">Central</span><span class="tag ar">كاسيت</span><span class="tag en">Cassette</span></div>
-          <a href="contact.html" class="cta-link"><span class="ar">احجز الآن</span><span class="en">Book Now</span></a>
-        </div>
-      </div>
-    </div>
+    <div class="card-wrap rev d2"><div class="card-inner">
+      <div class="card-front"><span class="card-ico">🔧</span><div class="card-num">02</div><h3 class="ar">إصلاح المكيفات</h3><h3 class="en">AC Repair</h3><p class="ar">تشخيص دقيق وإصلاح سريع لجميع الأعطال.</p><p class="en">Accurate diagnosis and fast repair of all faults.</p><div class="card-hint ar">مرّر للتفاصيل</div><div class="card-hint en">Hover for details</div></div>
+      <div class="card-back"><h3 class="ar">إصلاح المكيفات</h3><h3 class="en">AC Repair</h3><p class="ar">تسريب غاز، كمبروسر معطل، أعطال كهربائية، تسريب مياه — نشخّص ونصلح بسرعة.</p><p class="en">Gas leaks, compressor failure, electrical faults, water leaks — diagnosed and fixed fast.</p><div class="card-tags"><span class="tag ar">غاز فريون</span><span class="tag en">Gas Refill</span><span class="tag ar">كمبروسر</span></div><a href="contact.html"><span class="ari">احجز الآن</span><span class="eni">Book Now</span></a></div>
+    </div></div>
 
-    <div class="card-wrap rev d2">
-      <div class="card-inner">
-        <div class="card-front">
-          <div class="card-scene">
-            <div class="scene-glow" style="background:rgba(200,100,100,.5)"></div>
-            <div class="scene-icon">🔧</div>
-          </div>
-          <h3 class="ar">إصلاح المكيفات</h3><h3 class="en">AC Repair</h3>
-          <p class="ar">تشخيص دقيق وإصلاح سريع لجميع الأعطال.</p><p class="en">Accurate diagnosis and fast repair of all faults.</p>
-          <div class="flip-hint ar">🔄 اقلب لمعرفة المزيد</div><div class="flip-hint en">🔄 Hover to learn more</div>
-        </div>
-        <div class="card-back">
-          <div class="back-ico">🔧</div>
-          <h3 class="ar">إصلاح المكيفات</h3><h3 class="en">AC Repair</h3>
-          <p class="ar">نشخص ونصلح جميع أعطال المكيفات: تسريب غاز، كمبروسر معطل، أعطال كهربائية، تسريب مياه.</p>
-          <p class="en">We diagnose and fix all AC faults: gas leaks, compressor failure, electrical issues, water leaks.</p>
-          <div><span class="tag ar">غاز فريون</span><span class="tag en">Gas Refill</span><span class="tag ar">كمبروسر</span><span class="tag en">Compressor</span></div>
-          <a href="contact.html" class="cta-link"><span class="ar">احجز الآن</span><span class="en">Book Now</span></a>
-        </div>
-      </div>
-    </div>
+    <div class="card-wrap rev d3"><div class="card-inner">
+      <div class="card-front"><span class="card-ico">✅</span><div class="card-num">03</div><h3 class="ar">صيانة دورية</h3><h3 class="en">AC Maintenance</h3><p class="ar">برامج صيانة دورية لأداء مثالي طوال العام.</p><p class="en">Periodic maintenance programs for peak year-round performance.</p><div class="card-hint ar">مرّر للتفاصيل</div><div class="card-hint en">Hover for details</div></div>
+      <div class="card-back"><h3 class="ar">الصيانة الدورية</h3><h3 class="en">Periodic Maintenance</h3><p class="ar">تنظيف الفلاتر والكويلات، شحن الغاز، فحص كهربائي كامل — كل ما يحتاجه مكيفك.</p><p class="en">Filter & coil cleaning, gas charge, full electrical check — everything your AC needs.</p><div class="card-tags"><span class="tag ar">فلاتر</span><span class="tag ar">كويلات</span><span class="tag ar">غاز</span></div><a href="contact.html"><span class="ari">احجز الآن</span><span class="eni">Book Now</span></a></div>
+    </div></div>
 
-    <div class="card-wrap rev d3">
-      <div class="card-inner">
-        <div class="card-front">
-          <div class="card-scene">
-            <div class="scene-glow" style="background:rgba(100,200,100,.4)"></div>
-            <div class="scene-icon">✅</div>
-          </div>
-          <h3 class="ar">صيانة دورية</h3><h3 class="en">AC Maintenance</h3>
-          <p class="ar">برامج صيانة دورية لأداء مثالي طوال العام.</p><p class="en">Periodic maintenance for peak year-round performance.</p>
-          <div class="flip-hint ar">🔄 اقلب لمعرفة المزيد</div><div class="flip-hint en">🔄 Hover to learn more</div>
-        </div>
-        <div class="card-back">
-          <div class="back-ico">✅</div>
-          <h3 class="ar">الصيانة الدورية</h3><h3 class="en">Periodic Maintenance</h3>
-          <p class="ar">تنظيف الفلاتر، شحن الغاز، فحص الكهرباء، تنظيف الكويلات — كل ما يحتاجه مكيفك.</p>
-          <p class="en">Filter cleaning, gas charge, electrical check, coil cleaning — everything your AC needs.</p>
-          <div><span class="tag ar">فلاتر</span><span class="tag en">Filters</span><span class="tag ar">كويلات</span><span class="tag en">Coils</span><span class="tag ar">غاز</span><span class="tag en">Gas</span></div>
-          <a href="contact.html" class="cta-link"><span class="ar">احجز الآن</span><span class="en">Book Now</span></a>
-        </div>
-      </div>
-    </div>
+    <div class="card-wrap rev d1"><div class="card-inner">
+      <div class="card-front"><span class="card-ico">🧊</span><div class="card-num">04</div><h3 class="ar">إصلاح الثلاجات</h3><h3 class="en">Refrigerator Repair</h3><p class="ar">إصلاح جميع أعطال الثلاجات لكل الماركات.</p><p class="en">All refrigerator faults repaired for all brands.</p><div class="card-hint ar">مرّر للتفاصيل</div><div class="card-hint en">Hover for details</div></div>
+      <div class="card-back"><h3 class="ar">إصلاح الثلاجات</h3><h3 class="en">Refrigerator Repair</h3><p class="ar">ثرموستات، كمبروسر، أبواب، مشكلة تجميد، تسريب مياه — نصلح كل شيء لجميع الماركات.</p><p class="en">Thermostat, compressor, doors, freezing, leaks — all brands, all models.</p><div class="card-tags"><span class="tag">Samsung</span><span class="tag">LG</span><span class="tag">Hisense</span><span class="tag">Haier</span></div><a href="contact.html"><span class="ari">احجز الآن</span><span class="eni">Book Now</span></a></div>
+    </div></div>
 
-    <div class="card-wrap rev d1">
-      <div class="card-inner">
-        <div class="card-front">
-          <div class="card-scene">
-            <div class="scene-glow" style="background:rgba(100,180,255,.4)"></div>
-            <div class="scene-icon">🧊</div>
-          </div>
-          <h3 class="ar">إصلاح الثلاجات</h3><h3 class="en">Refrigerator Repair</h3>
-          <p class="ar">إصلاح جميع أعطال الثلاجات لكل الماركات.</p><p class="en">Repair all refrigerator faults, all brands.</p>
-          <div class="flip-hint ar">🔄 اقلب لمعرفة المزيد</div><div class="flip-hint en">🔄 Hover to learn more</div>
-        </div>
-        <div class="card-back">
-          <div class="back-ico">🧊</div>
-          <h3 class="ar">إصلاح الثلاجات</h3><h3 class="en">Refrigerator Repair</h3>
-          <p class="ar">ثرموستات، كمبروسر، أبواب، مشكلة تجميد، تسريب مياه — نصلح كل شيء لجميع الماركات.</p>
-          <p class="en">Thermostat, compressor, doors, freezing issues, leaks — we fix everything for all brands.</p>
-          <div><span class="tag">Samsung</span><span class="tag">LG</span><span class="tag">Hisense</span><span class="tag">Haier</span></div>
-          <a href="contact.html" class="cta-link"><span class="ar">احجز الآن</span><span class="en">Book Now</span></a>
-        </div>
-      </div>
-    </div>
+    <div class="card-wrap rev d2"><div class="card-inner">
+      <div class="card-front"><span class="card-ico">🫧</span><div class="card-num">05</div><h3 class="ar">إصلاح الغسالات</h3><h3 class="en">Washing Machine Repair</h3><p class="ar">إصلاح الغسالات الأوتوماتيكية لجميع الماركات.</p><p class="en">Automatic washer repair for all brands.</p><div class="card-hint ar">مرّر للتفاصيل</div><div class="card-hint en">Hover for details</div></div>
+      <div class="card-back"><h3 class="ar">إصلاح الغسالات</h3><h3 class="en">Washing Machine Repair</h3><p class="ar">موتور، لوحة تحكم، طلمبة مياه، حزام، باب — جميع أنواع الغسالات الأوتوماتيكية.</p><p class="en">Motor, control board, pump, belt, door — all automatic washer types.</p><div class="card-tags"><span class="tag ar">أوتوماتيك</span><span class="tag en">Top Load</span><span class="tag en">Front Load</span></div><a href="contact.html"><span class="ari">احجز الآن</span><span class="eni">Book Now</span></a></div>
+    </div></div>
 
-    <div class="card-wrap rev d2">
-      <div class="card-inner">
-        <div class="card-front">
-          <div class="card-scene">
-            <div class="scene-glow" style="background:rgba(150,100,255,.4)"></div>
-            <div class="scene-icon">🫧</div>
-          </div>
-          <h3 class="ar">إصلاح الغسالات</h3><h3 class="en">Washing Machine Repair</h3>
-          <p class="ar">إصلاح الغسالات الأوتوماتيكية لجميع الماركات.</p><p class="en">Auto washer repair for all brands.</p>
-          <div class="flip-hint ar">🔄 اقلب لمعرفة المزيد</div><div class="flip-hint en">🔄 Hover to learn more</div>
-        </div>
-        <div class="card-back">
-          <div class="back-ico">🫧</div>
-          <h3 class="ar">إصلاح الغسالات</h3><h3 class="en">Washing Machine Repair</h3>
-          <p class="ar">موتور، لوحة تحكم، طلمبة مياه، أحزمة، أبواب — نصلح كل أنواع الغسالات الأوتوماتيكية.</p>
-          <p class="en">Motor, control board, pump, belts, doors — we fix all automatic washer types.</p>
-          <div><span class="tag ar">أوتوماتيك</span><span class="tag en">Automatic</span><span class="tag ar">فوق</span><span class="tag en">Top Load</span></div>
-          <a href="contact.html" class="cta-link"><span class="ar">احجز الآن</span><span class="en">Book Now</span></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-wrap rev d3">
-      <div class="card-inner">
-        <div class="card-front">
-          <div class="card-scene">
-            <div class="scene-glow" style="background:rgba(255,180,50,.4)"></div>
-            <div class="scene-icon">⚙️</div>
-          </div>
-          <h3 class="ar">صيانة عامة</h3><h3 class="en">General Service</h3>
-          <p class="ar">فحص شامل لجميع الأجهزة المنزلية.</p><p class="en">Full check-up for all home appliances.</p>
-          <div class="flip-hint ar">🔄 اقلب لمعرفة المزيد</div><div class="flip-hint en">🔄 Hover to learn more</div>
-        </div>
-        <div class="card-back">
-          <div class="back-ico">⚙️</div>
-          <h3 class="ar">الصيانة العامة</h3><h3 class="en">General Service</h3>
-          <p class="ar">فحص وصيانة شاملة لجميع الأجهزة مع تقرير مفصل وتوصيات لإطالة عمرها.</p>
-          <p class="en">Full inspection and maintenance with a detailed report and longevity recommendations.</p>
-          <div><span class="tag ar">تقرير مفصل</span><span class="tag en">Full Report</span><span class="tag ar">ضمان</span><span class="tag en">Warranty</span></div>
-          <a href="contact.html" class="cta-link"><span class="ar">احجز الآن</span><span class="en">Book Now</span></a>
-        </div>
-      </div>
-    </div>
-
+    <div class="card-wrap rev d3"><div class="card-inner">
+      <div class="card-front"><span class="card-ico">⚙️</span><div class="card-num">06</div><h3 class="ar">صيانة عامة</h3><h3 class="en">General Service</h3><p class="ar">فحص شامل لجميع الأجهزة المنزلية مع تقرير مفصل.</p><p class="en">Full check-up for all home appliances with detailed report.</p><div class="card-hint ar">مرّر للتفاصيل</div><div class="card-hint en">Hover for details</div></div>
+      <div class="card-back"><h3 class="ar">الصيانة العامة</h3><h3 class="en">General Service</h3><p class="ar">فحص وصيانة شاملة مع تقرير مفصل وتوصيات لإطالة عمر الأجهزة وتوفير الطاقة.</p><p class="en">Full inspection with detailed report, longevity recommendations and energy-saving tips.</p><div class="card-tags"><span class="tag ar">تقرير</span><span class="tag en">Report</span><span class="tag ar">ضمان</span></div><a href="contact.html"><span class="ari">احجز الآن</span><span class="eni">Book Now</span></a></div>
+    </div></div>
   </div>
 </div>
 </section>
 
-<!-- PROCESS -->
 <section id="process" class="sec">
 <div class="wrap">
   <div class="rev">
-    <span class="s-label ar">كيف نعمل</span><span class="s-label en">How It Works</span>
-    <h2 class="s-title ar">أربع خطوات <span>بسيطة</span></h2><h2 class="s-title en">Four <span>Simple Steps</span></h2>
+    <div class="s-eyebrow ar">كيف نعمل</div><div class="s-eyebrow en">How It Works</div>
+    <h2 class="s-title ar">أربع خطوات بسيطة</h2><h2 class="s-title en">Four Simple Steps</h2>
+    <p class="s-sub ar">من المكالمة الأولى حتى انتهاء العمل — نجعل الأمر سهلاً عليك.</p>
+    <p class="s-sub en">From first call to job done — we make it easy for you.</p>
   </div>
-  <div class="proc-timeline">
-    <div class="proc-step rev d1"><div class="proc-num">١</div><h3 class="ar">اتصل أو واتساب</h3><h3 class="en">Call or WhatsApp</h3><p class="ar">تواصل معنا في أي وقت وصف المشكلة.</p><p class="en">Reach us anytime and describe the issue.</p></div>
-    <div class="proc-step rev d2"><div class="proc-num">٢</div><h3 class="ar">نحدد الموعد</h3><h3 class="en">Schedule Visit</h3><p class="ar">نحجز موعداً في نفس اليوم يناسبك.</p><p class="en">We book a same-day visit at your convenience.</p></div>
-    <div class="proc-step rev d3"><div class="proc-num">٣</div><h3 class="ar">فحص وتشخيص</h3><h3 class="en">Diagnose & Quote</h3><p class="ar">فحص الجهاز وسعر شفاف بدون مفاجآت.</p><p class="en">Full inspection and transparent quote — no surprises.</p></div>
-    <div class="proc-step rev d4"><div class="proc-num">٤</div><h3 class="ar">إصلاح وضمان</h3><h3 class="en">Fix & Guarantee</h3><p class="ar">إصلاح احترافي مع ضمان كتابي.</p><p class="en">Professional fix with a written guarantee.</p></div>
+  <div class="proc-grid">
+    <div class="proc-item rev d1"><div class="proc-n">01</div><h3 class="ar">اتصل أو واتساب</h3><h3 class="en">Call or WhatsApp</h3><p class="ar">تواصل معنا في أي وقت وأخبرنا بالمشكلة.</p><p class="en">Reach us anytime and tell us the problem.</p></div>
+    <div class="proc-item rev d2"><div class="proc-n">02</div><h3 class="ar">نحدد الموعد</h3><h3 class="en">Schedule</h3><p class="ar">نحجز موعداً في نفس اليوم يناسب وقتك.</p><p class="en">We book a same-day visit at your convenience.</p></div>
+    <div class="proc-item rev d3"><div class="proc-n">03</div><h3 class="ar">فحص وتسعير</h3><h3 class="en">Inspect & Quote</h3><p class="ar">نفحص الجهاز ونعطيك سعراً شفافاً بدون مفاجآت.</p><p class="en">Full inspection and a transparent quote — no surprises.</p></div>
+    <div class="proc-item rev d4"><div class="proc-n">04</div><h3 class="ar">إصلاح وضمان</h3><h3 class="en">Fix & Guarantee</h3><p class="ar">إصلاح احترافي مع ضمان مكتوب على العمل.</p><p class="en">Professional repair with a written work guarantee.</p></div>
   </div>
 </div>
 </section>
 
-<div class="glow-line"></div>
+<div class="divider"></div>
 <footer>
 <div class="wrap">
   <div class="foot-grid">
-    <div class="foot-brand"><div class="logo-txt"><span class="logo-ar">نعمان تبريد</span><span class="logo-en" style="-webkit-text-fill-color:var(--text2)">Nouman Tabreed</span></div><p class="ar">خبراء التبريد والصيانة في الرياض.</p><p class="en">AC & appliance experts in Riyadh.</p></div>
-    <div class="foot-col"><h4 class="ar">روابط سريعة</h4><h4 class="en">Quick Links</h4><ul><li><a href="index.html"><span class="ari">الرئيسية</span><span class="eni">Home</span></a></li><li><a href="services.html"><span class="ari">خدماتنا</span><span class="eni">Services</span></a></li><li><a href="gallery.html"><span class="ari">معرض الأعمال</span><span class="eni">Gallery</span></a></li><li><a href="contact.html"><span class="ari">تواصل معنا</span><span class="eni">Contact</span></a></li></ul></div>
-    <div class="foot-col"><h4 class="ar">تواصل معنا</h4><h4 class="en">Contact</h4><ul><li><a href="tel:+966XXXXXXXXX">📞 +966 XX XXX XXXX</a></li><li><a href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener">💬 WhatsApp</a></li><li><a>📍 <span class="ari">الرياض</span><span class="eni">Riyadh, KSA</span></a></li></ul></div>
+    <div class="foot-brand"><a href="index.html" class="logo" style="margin-bottom:14px"><div class="logo-mark"><span class="logo-mark-text">ن ت</span></div><div class="logo-words"><span class="logo-ar">نعمان <strong>تبريد</strong></span><span class="logo-en">Nouman Tabreed</span></div></a><p class="ar">خبراء التبريد والصيانة في الرياض.</p><p class="en">AC &amp; appliance experts in Riyadh.</p></div>
+    <div class="foot-col"><h4 class="ar">روابط سريعة</h4><h4 class="en">Quick Links</h4><ul><li><a href="index.html"><span class="ari">الرئيسية</span><span class="eni">Home</span></a></li><li><a href="services.html"><span class="ari">الخدمات</span><span class="eni">Services</span></a></li><li><a href="gallery.html"><span class="ari">المعرض</span><span class="eni">Gallery</span></a></li><li><a href="contact.html"><span class="ari">تواصل معنا</span><span class="eni">Contact</span></a></li></ul></div>
+    <div class="foot-col"><h4 class="ar">تواصل</h4><h4 class="en">Contact</h4><ul><li><a href="tel:+966XXXXXXXXX">+966 XX XXX XXXX</a></li><li><a href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
   </div>
-  <div class="foot-bottom"><p class="foot-copy"><span class="ari">© ٢٠٢٥ نعمان تبريد.</span><span class="eni">© 2025 Nouman Tabreed.</span></p><div class="foot-badge"><span class="ari">موقع آمن</span><span class="eni">Secure Site</span></div></div>
+  <div class="foot-bottom"><span class="foot-copy"><span class="ari">© ٢٠٢٥ نعمان تبريد.</span><span class="eni">© 2025 Nouman Tabreed.</span></span><span class="foot-secure"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg><span class="ari">موقع آمن</span><span class="eni">Secure</span></span></div>
 </div>
 </footer>
-<a id="fwa" href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener noreferrer">
-  <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  <span class="wa-label ari">واتساب</span><span class="wa-label eni">WhatsApp</span>
-</a>
-<div id="mob-bar">
-  <a href="tel:+966XXXXXXXXX" class="mob-call">📞 <span class="ari">اتصل الآن</span><span class="eni">Call Now</span></a>
-  <a href="https://wa.me/966XXXXXXXXX" class="mob-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
-</div>
+<a id="fwa" href="https://wa.me/966XXXXXXXXX" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="wa-label ari">واتساب</span><span class="wa-label eni">WhatsApp</span></a>
+<div id="mob-bar"><a href="tel:+966XXXXXXXXX" class="mob-call">📞 <span class="ari">اتصل الآن</span><span class="eni">Call Now</span></a><a href="https://wa.me/966XXXXXXXXX" class="mob-wa" target="_blank" rel="noopener">💬 WhatsApp</a></div>
 <script src="script.js"></script>
 </body></html>
