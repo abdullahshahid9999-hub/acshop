@@ -72,6 +72,220 @@
 </div>
 </div>
 
+<!-- 3D ORBIT SECTION -->
+<section class="sec" id="orbit-sec" style="background:var(--bg2);overflow:hidden;padding:80px 0">
+<div class="wrap" style="text-align:center">
+  <div class="rev" style="margin-bottom:52px">
+    <div class="s-eyebrow ar" style="justify-content:center">اختر خدمتك</div>
+    <div class="s-eyebrow en" style="justify-content:center">Choose Your Service</div>
+    <h2 class="s-title ar">خدماتنا — <span class="gold-text">ادُر لتختار</span></h2>
+    <h2 class="s-title en">Our Services — <span class="gold-text">Drag to Explore</span></h2>
+    <p style="font-size:13px;color:var(--text3)" class="ar">اسحب للتدوير • اضغط على الخدمة للتفاصيل</p>
+    <p style="font-size:13px;color:var(--text3)" class="en">Drag to rotate • Click a service for details</p>
+  </div>
+  <div id="orbit-wrap" style="position:relative;width:100%;height:540px;display:flex;align-items:center;justify-content:center;cursor:grab;user-select:none">
+    <canvas id="orbit-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas>
+    <!-- Center AC unit -->
+    <div id="orbit-center" style="position:absolute;z-index:10;text-align:center;pointer-events:none">
+      <div id="ac-3d-box" style="width:90px;height:60px;background:#c0d4e8;border-radius:10px;padding:7px;box-shadow:0 0 40px rgba(184,146,74,.3),0 8px 32px rgba(0,0,0,.5);position:relative;overflow:hidden;margin:0 auto">
+        <div style="height:3px;background:#8aacc8;border-radius:2px;margin-bottom:5px"></div>
+        <div style="background:#0a1520;border-radius:3px;padding:3px 6px;display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+          <span id="ac-display-temp" style="font-size:11px;font-weight:700;color:#00e676;font-family:monospace">18°C</span>
+          <span style="width:5px;height:5px;background:#00e676;border-radius:50%;display:block;animation:blink 2s ease infinite"></span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <div style="height:2px;background:#7aa0bc;border-radius:1px;opacity:.7"></div>
+          <div style="height:2px;background:#7aa0bc;border-radius:1px;opacity:.7"></div>
+          <div style="height:2px;background:#7aa0bc;border-radius:1px;opacity:.7"></div>
+        </div>
+        <div id="ac-blade" style="position:absolute;bottom:0;left:0;right:0;height:5px;background:#6a90ac;border-radius:0 0 10px 10px;animation:blade 3s ease-in-out infinite"></div>
+      </div>
+      <div style="font-size:11px;color:var(--gold);font-weight:700;margin-top:8px;letter-spacing:1px" class="ar">نعمان تبريد</div>
+      <div style="font-size:11px;color:var(--gold);font-weight:700;margin-top:8px;letter-spacing:1px" class="en">Nouman Tabreed</div>
+    </div>
+    <!-- Orbit cards injected by JS -->
+  </div>
+  <!-- Detail panel -->
+  <div id="orbit-detail" style="display:none;max-width:480px;margin:24px auto 0;background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:24px 28px;text-align:right;animation:fadeUp .35s ease">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+      <span id="od-ico" style="font-size:36px"></span>
+      <div><h3 id="od-title" style="font-size:17px;font-weight:700;color:var(--gold)"></h3></div>
+    </div>
+    <p id="od-desc" style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:16px"></p>
+    <a href="contact.html" style="display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:#07090f;font-size:13px;font-weight:700;padding:9px 20px;border-radius:7px;font-family:'Cairo',sans-serif">
+      <span class="ar">احجز الآن</span><span class="en">Book Now</span>
+    </a>
+    <button onclick="document.getElementById('orbit-detail').style.display='none'" style="background:none;border:none;color:var(--text3);font-size:12px;cursor:pointer;margin-right:12px;font-family:'Cairo',sans-serif" class="ar">إغلاق ✕</button>
+    <button onclick="document.getElementById('orbit-detail').style.display='none'" style="background:none;border:none;color:var(--text3);font-size:12px;cursor:pointer;margin-left:12px;font-family:'Cairo',sans-serif" class="en">Close ✕</button>
+  </div>
+</div>
+</section>
+
+<style>
+@keyframes blade{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.95)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.orbit-card{
+  position:absolute;
+  width:110px;height:110px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:6px;cursor:pointer;
+  transition:border-color .2s,box-shadow .2s;
+  transform:translate(-50%,-50%);
+  padding:10px;
+  text-align:center;
+}
+.orbit-card:hover{border-color:var(--gold);box-shadow:0 0 24px rgba(184,146,74,.2)}
+.orbit-card .oc-ico{font-size:28px;display:block}
+.orbit-card .oc-label{font-size:11px;font-weight:700;color:var(--text2);line-height:1.3}
+</style>
+
+<script>
+(function(){
+  const services=[
+    {ico:'❄️', ar:'تركيب\nالمكيفات', en:'AC\nInstall',
+     desc_ar:'تركيب سبليت، مركزي، كاسيت، شباك — مع اختبار كامل وضمان.',
+     desc_en:'Split, central, cassette & window install — full test & guarantee.'},
+    {ico:'🔧', ar:'إصلاح\nالمكيفات', en:'AC\nRepair',
+     desc_ar:'تسريب غاز، كمبروسر معطل، أعطال كهربائية — تشخيص دقيق وإصلاح سريع.',
+     desc_en:'Gas leaks, compressor, electrical — accurate diagnosis & fast repair.'},
+    {ico:'✅', ar:'صيانة\nدورية', en:'AC\nMaintenance',
+     desc_ar:'تنظيف فلاتر وكويلات، شحن غاز، فحص كهربائي — أداء مثالي طوال العام.',
+     desc_en:'Filter & coil clean, gas charge, electrical check — peak performance.'},
+    {ico:'🧊', ar:'إصلاح\nالثلاجات', en:'Fridge\nRepair',
+     desc_ar:'ثرموستات، كمبروسر، أبواب، تجميد، تسريب — جميع الماركات.',
+     desc_en:'Thermostat, compressor, doors, freezing, leaks — all brands.'},
+    {ico:'🫧', ar:'إصلاح\nالغسالات', en:'Washer\nRepair',
+     desc_ar:'موتور، لوحة تحكم، طلمبة، حزام — جميع أنواع الغسالات.',
+     desc_en:'Motor, board, pump, belt — all washer types.'},
+    {ico:'⚙️', ar:'صيانة\nعامة', en:'General\nService',
+     desc_ar:'فحص شامل مع تقرير مفصل وتوصيات لإطالة عمر الأجهزة.',
+     desc_en:'Full inspection with detailed report & longevity tips.'},
+  ];
+
+  const wrap = document.getElementById('orbit-wrap');
+  const W = ()=>wrap.offsetWidth, H = ()=>wrap.offsetHeight;
+  let angleY = 0, angleX = 12;
+  let dragStart = null, lastAngleY = 0, lastAngleX = 12;
+  let autoSpin = true, autoTimer;
+  const R = Math.min(W(), 220);
+
+  // Create cards
+  const cards = services.map((s,i)=>{
+    const el = document.createElement('div');
+    el.className = 'orbit-card';
+    const lang = document.documentElement.getAttribute('data-lang')||'ar';
+    el.innerHTML = `<span class="oc-ico">${s.ico}</span><span class="oc-label ar" style="white-space:pre-line">${s.ar}</span><span class="oc-label en" style="white-space:pre-line">${s.en}</span>`;
+    el.addEventListener('click',()=>showDetail(s));
+    wrap.appendChild(el);
+    return el;
+  });
+
+  function showDetail(s){
+    const lang = document.documentElement.getAttribute('data-lang')||'ar';
+    document.getElementById('od-ico').textContent = s.ico;
+    document.getElementById('od-title').textContent = lang==='ar' ? s.ar.replace('\n',' ') : s.en.replace('\n',' ');
+    document.getElementById('od-desc').textContent = lang==='ar' ? s.desc_ar : s.desc_en;
+    document.getElementById('orbit-detail').style.display='block';
+  }
+
+  // Canvas rings
+  const canvas = document.getElementById('orbit-canvas');
+  const ctx = canvas.getContext('2d');
+  function resizeCanvas(){
+    canvas.width = wrap.offsetWidth;
+    canvas.height = wrap.offsetHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas, {passive:true});
+
+  function project(x3,y3,z3){
+    const fov = 600;
+    const cx = W()/2, cy = H()/2;
+    const scale = fov/(fov+z3);
+    return {x: cx + x3*scale, y: cy + y3*scale, scale, z:z3};
+  }
+
+  function rotateY(x,z,a){
+    return {x: x*Math.cos(a)-z*Math.sin(a), z: x*Math.sin(a)+z*Math.cos(a)};
+  }
+  function rotateX(y,z,a){
+    return {y: y*Math.cos(a)-z*Math.sin(a), z: y*Math.sin(a)+z*Math.cos(a)};
+  }
+
+  function render(){
+    const r = Math.min(W()*0.38, 200);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    // Draw orbit ring
+    const ringPts = [];
+    for(let i=0;i<64;i++){
+      const t = (i/64)*Math.PI*2;
+      let x=Math.cos(t)*r, y=0, z=Math.sin(t)*r;
+      const ry = rotateY(x,z,angleY*Math.PI/180);
+      x=ry.x; z=ry.z;
+      const rx = rotateX(y,z,angleX*Math.PI/180);
+      y=rx.y; z=rx.z;
+      const p = project(x,y,z);
+      ringPts.push(p);
+    }
+    ctx.beginPath();
+    ringPts.forEach((p,i)=>i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y));
+    ctx.closePath();
+    ctx.strokeStyle='rgba(184,146,74,0.18)';
+    ctx.lineWidth=1.5;
+    ctx.stroke();
+
+    // Position cards
+    cards.forEach((el,i)=>{
+      const t = (i/services.length)*Math.PI*2;
+      let x=Math.cos(t)*r, y=0, z=Math.sin(t)*r;
+      const ry = rotateY(x,z,angleY*Math.PI/180);
+      x=ry.x; z=ry.z;
+      const rx = rotateX(y,z,angleX*Math.PI/180);
+      y=rx.y; z=rx.z;
+      const p = project(x,y,z);
+      el.style.left = p.x+'px';
+      el.style.top  = p.y+'px';
+      const s = Math.max(0.6, Math.min(1, (p.scale*1.4)));
+      el.style.transform = `translate(-50%,-50%) scale(${s})`;
+      el.style.opacity = Math.max(0.3, p.scale);
+      el.style.zIndex = Math.round(p.scale*10);
+    });
+
+    if(autoSpin) angleY += 0.25;
+    requestAnimationFrame(render);
+  }
+  render();
+
+  // Drag
+  function startDrag(x,y){
+    autoSpin=false; clearTimeout(autoTimer);
+    dragStart={x,y,ay:angleY,ax:angleX};
+    wrap.style.cursor='grabbing';
+  }
+  function moveDrag(x,y){
+    if(!dragStart)return;
+    angleY = dragStart.ay + (x-dragStart.x)*0.4;
+    angleX = Math.max(-30,Math.min(30, dragStart.ax + (y-dragStart.y)*0.2));
+  }
+  function endDrag(){
+    dragStart=null; wrap.style.cursor='grab';
+    autoTimer=setTimeout(()=>autoSpin=true,3000);
+  }
+  wrap.addEventListener('mousedown',e=>{startDrag(e.clientX,e.clientY)},{passive:true});
+  window.addEventListener('mousemove',e=>{moveDrag(e.clientX,e.clientY)},{passive:true});
+  window.addEventListener('mouseup',endDrag);
+  wrap.addEventListener('touchstart',e=>{startDrag(e.touches[0].clientX,e.touches[0].clientY)},{passive:true});
+  wrap.addEventListener('touchmove',e=>{moveDrag(e.touches[0].clientX,e.touches[0].clientY)},{passive:true});
+  wrap.addEventListener('touchend',endDrag,{passive:true});
+})();
+</script>
+
 <section class="sec">
 <div class="wrap">
   <div class="srv-grid">
@@ -140,3 +354,4 @@
 <div id="mob-bar"><a href="tel:+966XXXXXXXXX" class="mob-call">📞 <span class="ari">اتصل الآن</span><span class="eni">Call Now</span></a><a href="https://wa.me/966XXXXXXXXX" class="mob-wa" target="_blank" rel="noopener">💬 WhatsApp</a></div>
 <script src="script.js"></script>
 </body></html>
+<!-- This will be replaced — adding 3D scene via separate injection -->
