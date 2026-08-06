@@ -280,3 +280,72 @@ footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 5
   #fwa { bottom: 84px; }
   .foot-grid { grid-template-columns: 1fr; gap: 28px; }
 }
+
+/* ══════════════════════════════
+   BRANDS MARQUEE
+══════════════════════════════ */
+#brands {
+  padding: 52px 0;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+#brands::before, #brands::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+#brands::before { left: 0; background: linear-gradient(90deg, var(--bg2), transparent); }
+#brands::after  { right: 0; background: linear-gradient(-90deg, var(--bg2), transparent); }
+[data-theme=light] #brands::before { background: linear-gradient(90deg, var(--bg2), transparent); }
+[data-theme=light] #brands::after  { background: linear-gradient(-90deg, var(--bg2), transparent); }
+.brands-label {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 28px;
+}
+.marquee-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.brand-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  height: 60px;
+  flex-shrink: 0;
+  filter: grayscale(1) brightness(.6);
+  opacity: .55;
+  transition: filter .3s, opacity .3s, transform .3s;
+  cursor: default;
+}
+.brand-item:hover {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
+  transform: scale(1.08);
+}
+.brand-item img {
+  height: 36px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
+  display: block;
+}
