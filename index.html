@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>نعمان تبريد | خبراء التكييف والصيانة في الرياض</title>
 <meta name="description" content="نعمان تبريد – تركيب وإصلاح وصيانة المكيفات والثلاجات والغسالات في الرياض. خبرة +١٠ سنوات، خدمة منزلية، ضمان كامل."/>
 <meta name="robots" content="index,follow"/>
@@ -12,147 +13,190 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"نعمان تبريد","telephone":"+966XXXXXXXXX","address":{"@type":"PostalAddress","addressLocality":"الرياض","addressCountry":"SA"},"openingHours":"Sa-Th 08:00-22:00","areaServed":"الرياض"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="style.css"/>
 <style>
-/* ── HERO ── */
+/* ════ HERO ════ */
 #hero {
-  min-height: 100vh; display: flex; align-items: center;
-  padding-top: 68px; position: relative; overflow: hidden;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 88px 0 48px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
 }
-.hero-line {
-  position: absolute; background: var(--border);
+/* Subtle grid background */
+#hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: .4;
   pointer-events: none;
 }
-.hero-line-h { height: 1px; left: 0; right: 0; }
-.hero-line-v { width: 1px; top: 0; bottom: 0; }
-.h-line1 { top: 30%; } .h-line2 { top: 65%; }
-.v-line1 { left: 22%; } .v-line2 { right: 22%; }
-.hero-inner {
-  position: relative; z-index: 1;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 60px; align-items: center;
+/* Glow blob */
+#hero::after {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,146,74,.12), transparent 65%);
+  top: -100px; right: -100px;
+  pointer-events: none;
 }
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+[dir=ltr] #hero::after { right: auto; left: -100px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+/* LEFT */
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
   text-transform: uppercase; color: var(--gold);
   border: 1px solid var(--border2);
-  padding: 5px 14px; border-radius: 4px; margin-bottom: 22px;
+  padding: 5px 14px; border-radius: 4px;
+  margin-bottom: 20px;
 }
-.hero-badge-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
-.hero-h1 { font-size: clamp(34px,5vw,60px); font-weight: 800; line-height: 1.18; margin-bottom: 18px; }
+.hero-eyebrow span { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; }
+.hero-h1 {
+  font-size: clamp(30px, 4.5vw, 58px);
+  font-weight: 800; line-height: 1.15; margin-bottom: 18px;
+}
 .hero-h1 em { font-style: normal; color: var(--gold); }
-.hero-sub { font-size: 16px; color: var(--text2); line-height: 1.9; margin-bottom: 36px; max-width: 440px; }
-.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; }
-.hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-.h-stat { padding: 18px 14px; text-align: center; border-left: 1px solid var(--border); }
-.h-stat:last-child { border-left: none; }
-[dir=ltr] .h-stat { border-left: none; border-right: 1px solid var(--border); }
-[dir=ltr] .h-stat:last-child { border-right: none; }
-.h-stat-n { font-size: 26px; font-weight: 800; color: var(--gold); display: block; line-height: 1; }
-.h-stat-l { font-size: 11px; color: var(--text2); display: block; margin-top: 4px; }
-/* Right: visual panel */
+.hero-sub {
+  font-size: clamp(14px, 1.6vw, 16px);
+  color: var(--text2); line-height: 1.9;
+  margin-bottom: 32px; max-width: 420px;
+}
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+.hero-stats {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+}
+.hstat { padding: 16px 12px; text-align: center; border-left: 1px solid var(--border); }
+.hstat:last-child { border-left: none; }
+[dir=ltr] .hstat { border-left: none; border-right: 1px solid var(--border); }
+[dir=ltr] .hstat:last-child { border-right: none; }
+.hstat-n { font-size: 24px; font-weight: 800; color: var(--gold); display: block; line-height: 1; }
+.hstat-l { font-size: 11px; color: var(--text2); display: block; margin-top: 4px; }
+
+/* RIGHT - visual card */
 .hero-visual {
-  position: relative; height: 460px;
-  border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
-  background: var(--bg3);
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.15);
 }
-.hero-visual-bg {
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(30,58,95,.4), transparent 65%);
+[data-theme=light] .hero-visual { box-shadow: 0 20px 60px rgba(0,0,0,.08); }
+.vis-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 6px; padding: 7px 14px;
+  font-size: 12px; font-weight: 600; color: var(--text);
+  margin-bottom: 24px;
 }
-.ac-unit-3d {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -54%);
-  width: 220px;
+.live-dot {
+  width: 8px; height: 8px; background: #22c55e; border-radius: 50%;
+  position: relative;
 }
-.ac-body {
-  background: #c8d8e8; border-radius: 10px; padding: 10px;
-  box-shadow: 0 8px 32px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.2);
-  position: relative; overflow: hidden;
-}
-.ac-top-bar { height: 4px; background: #90b0cc; border-radius: 2px; margin-bottom: 8px; }
-.ac-display {
-  background: #0a1520; border-radius: 4px; padding: 6px 10px;
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 8px;
-}
-.ac-temp { font-size: 13px; font-weight: 700; color: #00e676; font-family: monospace; }
-.ac-status-dot { width: 6px; height: 6px; background: #00e676; border-radius: 50%; animation: blink 2s ease infinite; }
-@keyframes blink { 0%,100%{opacity:1}50%{opacity:.2} }
-.ac-grille { display: flex; flex-direction: column; gap: 3px; }
-.ac-slat { height: 3px; background: #8ab0cc; border-radius: 1.5px; opacity: .7; }
-.ac-blade {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 6px; background: #7aa0bc; border-radius: 0 0 10px 10px;
-  animation: blade-sway 3s ease-in-out infinite;
-}
-@keyframes blade-sway { 0%,100%{transform:scaleX(1)}50%{transform:scaleX(.97)} }
-/* Cold air particles */
-.air-stream { position: absolute; top: 56%; left: 0; right: 0; height: 160px; }
-.air-dot {
-  position: absolute; border-radius: 50%;
-  background: rgba(160,210,240,.5); animation: drift linear infinite;
-}
-@keyframes drift {
-  0%   { opacity: .7; transform: translateY(0) scale(1); }
-  100% { opacity: 0;  transform: translateY(120px) scale(.2); }
-}
-.snowf { position: absolute; color: rgba(160,210,240,.4); font-size: 11px; animation: snowfall linear infinite; }
-@keyframes snowfall { 0%{opacity:.6;transform:translateY(-10px) rotate(0)} 100%{opacity:0;transform:translateY(180px) rotate(180deg)} }
-/* Meter panel on side */
-.hero-meter {
-  position: absolute; bottom: 28px; right: 20px;
-  background: var(--bg2); border: 1px solid var(--border2);
-  border-radius: 8px; padding: 14px 16px; width: 130px;
-}
-.meter-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-.meter-bar-wrap { background: var(--bg); border-radius: 3px; height: 4px; margin-bottom: 6px; overflow: hidden; }
-.meter-bar { height: 100%; border-radius: 3px; background: var(--gold); animation: meter-fill 3s ease-in-out infinite alternate; }
-@keyframes meter-fill { from{width:60%} to{width:92%} }
-.meter-val { font-size: 18px; font-weight: 800; color: var(--text); }
-.meter-unit { font-size: 10px; color: var(--text2); }
-/* Badge top-left of visual */
-.hero-vis-badge {
-  position: absolute; top: 20px; left: 20px;
-  background: var(--bg2); border: 1px solid var(--border2);
-  border-radius: 6px; padding: 8px 12px;
-  font-size: 11px; font-weight: 700; color: var(--gold);
-  display: flex; align-items: center; gap: 6px;
-}
-.pulse-ring {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: #25D366; position: relative;
-}
-.pulse-ring::after {
+.live-dot::after {
   content: ''; position: absolute; inset: -3px;
-  border-radius: 50%; border: 1.5px solid #25D366;
-  animation: ring-pulse 1.8s ease infinite; opacity: 0;
+  border-radius: 50%; border: 1.5px solid #22c55e;
+  animation: livering 1.8s ease infinite; opacity: 0;
 }
-@keyframes ring-pulse { 0%{transform:scale(1);opacity:.7}100%{transform:scale(1.8);opacity:0} }
+@keyframes livering { 0%{transform:scale(1);opacity:.7} 100%{transform:scale(2);opacity:0} }
 
-/* ── WHY US ── */
+/* AC 3D-ish visual */
+.ac-visual {
+  background: linear-gradient(160deg, #ddeaf8, #c8d8ec);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.5);
+  position: relative;
+}
+[data-theme=dark] .ac-visual { background: linear-gradient(160deg,#b0c8e0,#90aec8); }
+.ac-vis-bar { height: 4px; background: rgba(0,0,0,.1); border-radius: 2px; margin-bottom: 10px; }
+.ac-vis-screen {
+  background: #0a1520; border-radius: 6px;
+  padding: 8px 14px; display: flex;
+  justify-content: space-between; align-items: center;
+  margin-bottom: 10px;
+}
+.ac-vis-temp { font-size: 15px; font-weight: 700; color: #00e676; font-family: monospace; }
+.ac-vis-dot { width: 7px; height: 7px; background: #00e676; border-radius: 50%; animation: blink 2s ease infinite; }
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.ac-vis-grille { display: flex; flex-direction: column; gap: 3px; }
+.ac-vis-slat { height: 3px; background: rgba(0,0,0,.15); border-radius: 1.5px; }
+.ac-vis-blade { height: 6px; background: rgba(0,0,0,.12); border-radius: 0 0 8px 8px; margin-top: 8px; animation: blade 3s ease-in-out infinite; }
+@keyframes blade{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.96)}}
+/* Cold air particles */
+.ac-air { height: 70px; position: relative; overflow: hidden; }
+.air-dot { position: absolute; border-radius: 50%; background: rgba(120,190,230,.5); animation: airdrift linear infinite; }
+@keyframes airdrift{0%{opacity:.7;transform:translateY(0)}100%{opacity:0;transform:translateY(80px)}}
+.sf { position: absolute; color: rgba(120,190,230,.5); font-size: 12px; animation: sffall linear infinite; }
+@keyframes sffall{0%{opacity:.7;transform:translateY(-5px) rotate(0)}100%{opacity:0;transform:translateY(80px) rotate(180deg)}}
+
+/* Efficiency widget */
+.eff-widget {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+}
+.eff-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.eff-bar-bg { background: var(--bg); border-radius: 3px; height: 5px; margin-bottom: 8px; overflow: hidden; }
+.eff-bar-fill { height: 100%; background: var(--gold); border-radius: 3px; animation: efill 3s ease-in-out infinite alternate; }
+@keyframes efill{from{width:72%}to{width:94%}}
+.eff-val { font-size: 22px; font-weight: 800; color: var(--text); }
+.eff-unit { font-size: 12px; color: var(--text2); }
+
+/* Trust badges row */
+.trust-row {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px;
+}
+.trust-badge {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 6px; padding: 6px 12px;
+  font-size: 12px; font-weight: 600; color: var(--text2);
+}
+.trust-badge span { font-size: 14px; }
+
+/* ════ WHY US ════ */
 #why { background: var(--bg2); }
-.why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-.why-item { background: var(--bg2); padding: 32px 24px; transition: background .25s; }
+.why-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+}
+.why-item { background: var(--bg2); padding: 28px 22px; transition: background .25s; }
 .why-item:hover { background: var(--card); }
-.why-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--gold); margin-bottom: 16px; }
-.why-ico { font-size: 28px; margin-bottom: 14px; display: block; }
-.why-item h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-.why-item p { font-size: 13px; color: var(--text2); line-height: 1.75; }
+.why-num { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--gold); margin-bottom: 14px; }
+.why-ico { font-size: 26px; margin-bottom: 12px; display: block; }
+.why-item h3 { font-size: 14px; font-weight: 700; margin-bottom: 7px; }
+.why-item p { font-size: 12px; color: var(--text2); line-height: 1.75; }
 
-/* ── TESTIMONIALS ── */
+/* ════ TESTIMONIALS ════ */
 .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
 .test-card {
   background: var(--card); border: 1px solid var(--border);
-  border-radius: 10px; padding: 28px 24px;
+  border-radius: 10px; padding: 26px 22px;
   transition: border-color .25s, transform .25s;
 }
 .test-card:hover { border-color: var(--gold); transform: translateY(-3px); }
-.test-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 14px; }
-.test-body { font-size: 13px; color: var(--text2); line-height: 1.85; margin-bottom: 22px; }
-.test-author { display: flex; align-items: center; gap: 12px; }
+.test-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 12px; }
+.test-body { font-size: 13px; color: var(--text2); line-height: 1.85; margin-bottom: 20px; }
+.test-author { display: flex; align-items: center; gap: 11px; }
 .test-avatar {
   width: 40px; height: 40px; border-radius: 50%;
   background: var(--steel); border: 1px solid var(--border2);
@@ -162,24 +206,45 @@
 .test-name { font-size: 13px; font-weight: 700; }
 .test-loc { font-size: 11px; color: var(--text2); margin-top: 2px; }
 
-/* ── CTA STRIP ── */
+/* ════ CTA STRIP ════ */
 #cta-strip {
-  background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  background: var(--card);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
   padding: 64px 0;
 }
-.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-.cta-text h2 { font-size: clamp(22px,3vw,36px); font-weight: 800; margin-bottom: 6px; }
+.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.cta-text h2 { font-size: clamp(20px,3vw,34px); font-weight: 800; margin-bottom: 6px; }
 .cta-text p { font-size: 15px; color: var(--text2); }
 .cta-actions { display: flex; gap: 12px; flex-shrink: 0; }
 
-@media(max-width:1024px){ .hero-inner{grid-template-columns:1fr} .hero-visual{display:none} .why-grid{grid-template-columns:repeat(2,1fr)} }
-@media(max-width:768px){ .test-grid{display:flex;overflow-x:auto;gap:14px;padding-bottom:8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch} .test-card{min-width:272px;scroll-snap-align:start;flex-shrink:0} .cta-inner{flex-direction:column;text-align:center} .cta-actions{justify-content:center} }
-@media(max-width:580px){ .why-grid{grid-template-columns:1fr 1fr} .hero-stats{grid-template-columns:repeat(3,1fr)} }
+/* ════ RESPONSIVE ════ */
+@media(max-width:900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-visual { max-width: 480px; margin: 0 auto; width: 100%; }
+  .why-grid { grid-template-columns: repeat(2,1fr); }
+  .test-grid { display: flex; overflow-x: auto; gap: 14px; padding-bottom: 8px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+  .test-card { min-width: 272px; scroll-snap-align: start; flex-shrink: 0; }
+  .cta-inner { flex-direction: column; text-align: center; }
+  .cta-actions { justify-content: center; }
+}
+@media(max-width:600px) {
+  #hero { padding: 80px 0 40px; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .hero-h1 { font-size: clamp(26px, 7vw, 38px); }
+  .hero-stats { grid-template-columns: repeat(3,1fr); }
+  .hstat-n { font-size: 20px; }
+  .trust-row { display: none; }
+}
+@media(max-width:380px) {
+  .hero-btns { flex-direction: column; }
+  .hero-btns a { text-align: center; justify-content: center; }
+}
 </style>
 </head>
 <body>
 <canvas id="particles"></canvas>
 
+<!-- NAV -->
 <nav id="nav">
 <div class="nav-inner">
   <a href="index.html" class="logo">
@@ -209,104 +274,121 @@
   <li><a href="contact.html" class="ml"><span class="ari">تواصل معنا</span><span class="eni">Contact</span></a></li>
 </ul></div>
 
-<!-- HERO -->
+<!-- ════ HERO ════ -->
 <section id="hero">
-  <div class="hero-line hero-line-h h-line1"></div>
-  <div class="hero-line hero-line-h h-line2"></div>
-  <div class="hero-line hero-line-v v-line1"></div>
-  <div class="hero-line hero-line-v v-line2"></div>
-  <div class="wrap">
-    <div class="hero-inner">
-      <div class="rev">
-        <div class="hero-badge"><div class="hero-badge-dot"></div><span class="ari">الرياض، المملكة العربية السعودية</span><span class="eni">Al Riyadh, Saudi Arabia</span></div>
-        <h1 class="hero-h1 ar">خبراء <em>التبريد</em><br/>والصيانة في<br/>الرياض</h1>
-        <h1 class="hero-h1 en">Riyadh's Trusted<br/><em>AC & Appliance</em><br/>Repair Experts</h1>
-        <p class="hero-sub ar">تركيب وإصلاح وصيانة المكيفات والثلاجات والغسالات بخبرة تزيد عن ١٠ سنوات. نصل إليك في أي حي بالرياض.</p>
-        <p class="hero-sub en">Professional AC installation, refrigerator & washing machine repair with 10+ years experience across Riyadh.</p>
-        <div class="hero-btns">
-          <a href="contact.html" class="btn-primary"><span class="ari">احجز زيارة</span><span class="eni">Book a Visit</span></a>
-          <a href="services.html" class="btn-secondary"><span class="ari">خدماتنا</span><span class="eni">Our Services</span></a>
-        </div>
-        <div class="hero-stats">
-          <div class="h-stat"><span class="h-stat-n counter" data-target="10" data-plus="true">0</span><span class="h-stat-l ar">سنوات خبرة</span><span class="h-stat-l en">Yrs Experience</span></div>
-          <div class="h-stat"><span class="h-stat-n counter" data-target="500" data-plus="true">0</span><span class="h-stat-l ar">عميل راضٍ</span><span class="h-stat-l en">Happy Clients</span></div>
-          <div class="h-stat"><span class="h-stat-n">٢٤/٧</span><span class="h-stat-l ar">طوارئ</span><span class="h-stat-l en">Emergency</span></div>
-        </div>
+<div class="wrap">
+  <div class="hero-grid">
+    <!-- LEFT -->
+    <div class="rev">
+      <div class="hero-eyebrow">
+        <span></span>
+        <span class="ari">الرياض، المملكة العربية السعودية</span>
+        <span class="eni">Al Riyadh, Saudi Arabia</span>
       </div>
-      <!-- Right visual -->
-      <div class="hero-visual rev-r">
-        <div class="hero-visual-bg"></div>
-        <div class="hero-vis-badge"><div class="pulse-ring"></div><span class="ari">خدمة نشطة الآن</span><span class="eni">Active Now</span></div>
-        <div class="ac-unit-3d">
-          <div class="ac-body">
-            <div class="ac-top-bar"></div>
-            <div class="ac-display"><span class="ac-temp">18°C</span><div class="ac-status-dot"></div></div>
-            <div class="ac-grille"><div class="ac-slat"></div><div class="ac-slat"></div><div class="ac-slat"></div><div class="ac-slat"></div><div class="ac-slat"></div></div>
-            <div class="ac-blade"></div>
-          </div>
+      <h1 class="hero-h1 ar">خبراء <em>التبريد</em><br/>والصيانة في<br/>الرياض</h1>
+      <h1 class="hero-h1 en">Riyadh's Trusted<br/><em>AC & Appliance</em><br/>Repair Experts</h1>
+      <p class="hero-sub ar">تركيب وإصلاح وصيانة المكيفات والثلاجات والغسالات بخبرة تزيد عن ١٠ سنوات. نصل إليك في أي حي بالرياض.</p>
+      <p class="hero-sub en">Professional AC installation, refrigerator & washing machine repair with 10+ years experience across Riyadh. We come to you.</p>
+      <div class="hero-btns">
+        <a href="contact.html" class="btn-primary"><span class="ari">📞 احجز زيارة</span><span class="eni">📞 Book a Visit</span></a>
+        <a href="services.html" class="btn-secondary"><span class="ari">خدماتنا</span><span class="eni">Our Services</span></a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-n counter" data-target="10" data-plus="true">0</span><span class="hstat-l ar">سنوات خبرة</span><span class="hstat-l en">Yrs Experience</span></div>
+        <div class="hstat"><span class="hstat-n counter" data-target="500" data-plus="true">0</span><span class="hstat-l ar">عميل راضٍ</span><span class="hstat-l en">Happy Clients</span></div>
+        <div class="hstat"><span class="hstat-n">٢٤/٧</span><span class="hstat-l ar">طوارئ</span><span class="hstat-l en">Emergency</span></div>
+      </div>
+      <div class="trust-row">
+        <div class="trust-badge"><span>🛡️</span><span class="ari">ضمان مكتوب</span><span class="eni">Written Guarantee</span></div>
+        <div class="trust-badge"><span>🏠</span><span class="ari">خدمة منزلية</span><span class="eni">Home Service</span></div>
+        <div class="trust-badge"><span>⚡</span><span class="ari">استجابة سريعة</span><span class="eni">Fast Response</span></div>
+      </div>
+    </div>
+    <!-- RIGHT - AC Visual Card -->
+    <div class="hero-visual rev-r">
+      <div class="vis-badge">
+        <div class="live-dot"></div>
+        <span class="ari">خدمة نشطة الآن</span>
+        <span class="eni">Active Now</span>
+      </div>
+      <div class="ac-visual">
+        <div class="ac-vis-bar"></div>
+        <div class="ac-vis-screen">
+          <span class="ac-vis-temp">18°C</span>
+          <div class="ac-vis-dot"></div>
         </div>
-        <div class="air-stream">
-          <div class="air-dot" style="left:20%;width:6px;height:6px;animation-duration:2.2s;animation-delay:0s"></div>
-          <div class="air-dot" style="left:35%;width:4px;height:4px;animation-duration:2.8s;animation-delay:.4s"></div>
-          <div class="air-dot" style="left:50%;width:7px;height:7px;animation-duration:2.5s;animation-delay:.8s"></div>
-          <div class="air-dot" style="left:65%;width:4px;height:4px;animation-duration:3s;animation-delay:.3s"></div>
-          <div class="air-dot" style="left:78%;width:5px;height:5px;animation-duration:2.4s;animation-delay:1.1s"></div>
-          <span class="snowf" style="left:25%;animation-duration:3.5s;animation-delay:0s">❄</span>
-          <span class="snowf" style="left:50%;animation-duration:4s;animation-delay:1s">❄</span>
-          <span class="snowf" style="left:70%;animation-duration:3s;animation-delay:.5s">❄</span>
+        <div class="ac-vis-grille">
+          <div class="ac-vis-slat"></div>
+          <div class="ac-vis-slat"></div>
+          <div class="ac-vis-slat"></div>
+          <div class="ac-vis-slat"></div>
+          <div class="ac-vis-slat"></div>
         </div>
-        <div class="hero-meter">
-          <div class="meter-label ar">كفاءة التبريد</div>
-          <div class="meter-label en">Cooling Efficiency</div>
-          <div class="meter-bar-wrap"><div class="meter-bar"></div></div>
-          <span class="meter-val">94<span class="meter-unit">%</span></span>
-        </div>
+        <div class="ac-vis-blade"></div>
+      </div>
+      <div class="ac-air">
+        <div class="air-dot" style="left:18%;width:7px;height:7px;animation-duration:2.2s;top:0"></div>
+        <div class="air-dot" style="left:36%;width:5px;height:5px;animation-duration:2.8s;animation-delay:.5s;top:0"></div>
+        <div class="air-dot" style="left:54%;width:8px;height:8px;animation-duration:2.5s;animation-delay:.9s;top:0"></div>
+        <div class="air-dot" style="left:72%;width:5px;height:5px;animation-duration:3s;animation-delay:.3s;top:0"></div>
+        <span class="sf" style="left:25%;animation-duration:3.5s">❄</span>
+        <span class="sf" style="left:52%;animation-duration:4s;animation-delay:1s">❄</span>
+        <span class="sf" style="left:74%;animation-duration:3.2s;animation-delay:.5s">❄</span>
+      </div>
+      <div class="eff-widget">
+        <div class="eff-label ar">كفاءة التبريد</div>
+        <div class="eff-label en">Cooling Efficiency</div>
+        <div class="eff-bar-bg"><div class="eff-bar-fill"></div></div>
+        <span class="eff-val">94<span class="eff-unit">%</span></span>
       </div>
     </div>
   </div>
+</div>
 </section>
 
-<!-- WHY US -->
+<!-- ════ WHY US ════ -->
 <section id="why" class="sec">
 <div class="wrap">
   <div class="rev">
     <div class="s-eyebrow ar">ما يميزنا</div><div class="s-eyebrow en">Our Edge</div>
-    <h2 class="s-title ar">لماذا نعمان تبريد؟</h2><h2 class="s-title en">Why Nouman Tabreed?</h2>
+    <h2 class="s-title ar">لماذا <em style="font-style:normal;color:var(--gold)">نعمان تبريد؟</em></h2>
+    <h2 class="s-title en">Why <em style="font-style:normal;color:var(--gold)">Nouman Tabreed?</em></h2>
     <p class="s-sub ar">لأننا نقدم أكثر من مجرد إصلاح — نقدم راحة بال حقيقية.</p>
-    <p class="s-sub en">Because we deliver more than just repairs — we deliver real peace of mind.</p>
+    <p class="s-sub en">Because we deliver more than repairs — real peace of mind.</p>
   </div>
   <div class="why-grid">
-    <div class="why-item rev d1"><div class="why-num">01</div><span class="why-ico">🏆</span><h3 class="ar">خبرة +١٠ سنوات</h3><h3 class="en">10+ Years Experience</h3><p class="ar">عقد كامل في خدمة عائلات الرياض بأعلى معايير الجودة.</p><p class="en">A full decade serving Riyadh families with the highest quality standards.</p></div>
-    <div class="why-item rev d2"><div class="why-num">02</div><span class="why-ico">🏠</span><h3 class="ar">خدمة في المنزل</h3><h3 class="en">Home Service</h3><p class="ar">نأتي إليك في أي حي — لا تحتاج لنقل الجهاز.</p><p class="en">We come to you anywhere in Riyadh — no need to move your appliance.</p></div>
+    <div class="why-item rev d1"><div class="why-num">01</div><span class="why-ico">🏆</span><h3 class="ar">خبرة +١٠ سنوات</h3><h3 class="en">10+ Years Experience</h3><p class="ar">عقد كامل في خدمة عائلات الرياض بأعلى معايير الجودة.</p><p class="en">A full decade serving Riyadh families with highest quality standards.</p></div>
+    <div class="why-item rev d2"><div class="why-num">02</div><span class="why-ico">🏠</span><h3 class="ar">خدمة في المنزل</h3><h3 class="en">Home Service</h3><p class="ar">نأتي إليك في أي حي — لا تحتاج لنقل الجهاز.</p><p class="en">We come to you anywhere in Riyadh — no need to move anything.</p></div>
     <div class="why-item rev d3"><div class="why-num">03</div><span class="why-ico">⚡</span><h3 class="ar">استجابة سريعة</h3><h3 class="en">Fast Response</h3><p class="ar">نصل إليك خلال ساعات من مكالمتك الأولى.</p><p class="en">We arrive within hours of your first call.</p></div>
     <div class="why-item rev d4"><div class="why-num">04</div><span class="why-ico">🛡️</span><h3 class="ar">ضمان مكتوب</h3><h3 class="en">Written Guarantee</h3><p class="ar">جميع أعمال الإصلاح والتركيب مضمونة بالكامل.</p><p class="en">All repair and installation work fully guaranteed in writing.</p></div>
   </div>
 </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- ════ TESTIMONIALS ════ -->
 <section id="reviews" class="sec">
 <div class="wrap">
   <div class="rev">
     <div class="s-eyebrow ar">آراء العملاء</div><div class="s-eyebrow en">Client Reviews</div>
-    <h2 class="s-title ar">ماذا يقول عملاؤنا</h2><h2 class="s-title en">What Our Clients Say</h2>
+    <h2 class="s-title ar">ماذا يقول <em style="font-style:normal;color:var(--gold)">عملاؤنا</em></h2>
+    <h2 class="s-title en">What Our <em style="font-style:normal;color:var(--gold)">Clients Say</em></h2>
   </div>
   <div class="test-grid">
     <article class="test-card rev d1">
       <div class="test-stars">★★★★★</div>
       <p class="test-body ar">فريق محترف جداً، جاءوا في نفس اليوم وأصلحوا المكيف في ساعة. سعر معقول وضمان على الشغل. أنصح الكل بهم.</p>
-      <p class="test-body en">Very professional, came same day and fixed the AC in an hour. Fair price, work guarantee. Highly recommended.</p>
+      <p class="test-body en">Very professional, came same day, fixed the AC in an hour. Fair price and guarantee. Highly recommended.</p>
       <div class="test-author"><div class="test-avatar">أ</div><div><div class="test-name ar">أحمد الغامدي</div><div class="test-name en">Ahmed Al-Ghamdi</div><div class="test-loc ar">حي النرجس، الرياض</div><div class="test-loc en">Al Narjis, Riyadh</div></div></div>
     </article>
     <article class="test-card rev d2">
       <div class="test-stars">★★★★★</div>
       <p class="test-body ar">الثلاجة كانت تعبانة أسبوع، جاء الفني وشخّص المشكلة وغيّر القطعة بنفس اليوم. خدمة ممتازة.</p>
-      <p class="test-body en">Fridge broken for a week — technician came, diagnosed and fixed it same day. Excellent service.</p>
+      <p class="test-body en">Fridge broken a week — technician diagnosed and fixed same day. Excellent service.</p>
       <div class="test-author"><div class="test-avatar">س</div><div><div class="test-name ar">سارة العتيبي</div><div class="test-name en">Sara Al-Otaibi</div><div class="test-loc ar">حي الملقا، الرياض</div><div class="test-loc en">Al Malqa, Riyadh</div></div></div>
     </article>
     <article class="test-card rev d3">
       <div class="test-stars">★★★★★</div>
-      <p class="test-body ar">تعاملت معهم لتركيب ٤ مكيفات في الفيلا. عمل نظيف ومرتب، أسعار تنافسية. سأتعامل معهم دائماً.</p>
+      <p class="test-body ar">تعاملت معهم لتركيب ٤ مكيفات في الفيلا. عمل نظيف، أسعار تنافسية. سأتعامل معهم دائماً.</p>
       <p class="test-body en">Had 4 ACs installed in my villa — clean work, competitive prices. My permanent go-to.</p>
       <div class="test-author"><div class="test-avatar">م</div><div><div class="test-name ar">محمد القحطاني</div><div class="test-name en">Mohammed Al-Qahtani</div><div class="test-loc ar">حي الياسمين، الرياض</div><div class="test-loc en">Al Yasmin, Riyadh</div></div></div>
     </article>
@@ -314,12 +396,12 @@
 </div>
 </section>
 
-<!-- BRANDS MARQUEE -->
+<!-- ════ BRANDS ════ -->
 <section id="brands">
 <p class="brands-label ar">الماركات التي نصلحها ونركبها</p>
 <p class="brands-label en">Brands We Service & Install</p>
 <div style="overflow:hidden">
-  <div class="marquee-track" id="marquee">
+  <div class="marquee-track">
     <div class="brand-item"><img src="assets/brands/samsung.png" alt="Samsung"/></div>
     <div class="brand-item"><img src="assets/brands/lg.png" alt="LG"/></div>
     <div class="brand-item"><img src="assets/brands/daikin.png" alt="Daikin"/></div>
@@ -332,7 +414,6 @@
     <div class="brand-item"><img src="assets/brands/bosch.png" alt="Bosch"/></div>
     <div class="brand-item"><img src="assets/brands/whirlpool.png" alt="Whirlpool"/></div>
     <div class="brand-item"><img src="assets/brands/panasonic.png" alt="Panasonic"/></div>
-    <!-- Duplicate for seamless loop -->
     <div class="brand-item"><img src="assets/brands/samsung.png" alt="Samsung"/></div>
     <div class="brand-item"><img src="assets/brands/lg.png" alt="LG"/></div>
     <div class="brand-item"><img src="assets/brands/daikin.png" alt="Daikin"/></div>
@@ -349,7 +430,7 @@
 </div>
 </section>
 
-<!-- CTA STRIP -->
+<!-- ════ CTA ════ -->
 <section id="cta-strip">
 <div class="wrap">
   <div class="cta-inner rev">
@@ -365,7 +446,7 @@
 </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ════ FOOTER ════ -->
 <div class="divider"></div>
 <footer>
 <div class="wrap">
@@ -413,4 +494,5 @@
   <a href="https://wa.me/966XXXXXXXXX" class="mob-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
 </div>
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>
