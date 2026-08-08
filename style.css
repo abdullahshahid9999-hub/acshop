@@ -286,12 +286,15 @@ footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 5
 ══════════════════════════════ */
 #brands {
   padding: 52px 0;
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  background: #ffffff;
+  border-top: 1px solid #e8e2d8;
+  border-bottom: 1px solid #e8e2d8;
   overflow: hidden;
   position: relative;
   z-index: 1;
+}
+[data-theme=dark] #brands {
+  background: #f8f5f0;
 }
 #brands::before, #brands::after {
   content: '';
@@ -301,17 +304,17 @@ footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 5
   z-index: 2;
   pointer-events: none;
 }
-#brands::before { left: 0; background: linear-gradient(90deg, var(--bg2), transparent); }
-#brands::after  { right: 0; background: linear-gradient(-90deg, var(--bg2), transparent); }
-[data-theme=light] #brands::before { background: linear-gradient(90deg, var(--bg2), transparent); }
-[data-theme=light] #brands::after  { background: linear-gradient(-90deg, var(--bg2), transparent); }
+#brands::before { left: 0; background: linear-gradient(90deg, #ffffff, transparent); }
+#brands::after  { right: 0; background: linear-gradient(-90deg, #ffffff, transparent); }
+[data-theme=dark] #brands::before { background: linear-gradient(90deg, #f8f5f0, transparent); }
+[data-theme=dark] #brands::after  { background: linear-gradient(-90deg, #f8f5f0, transparent); }
 .brands-label {
   text-align: center;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--text3);
+  color: #8a7a60;
   margin-bottom: 28px;
 }
 .marquee-track {
@@ -349,3 +352,64 @@ footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 5
   object-fit: contain;
   display: block;
 }
+
+/* ══════════════════════════════
+   REVIEWS AUTO-SCROLL CAROUSEL
+══════════════════════════════ */
+#reviews { background: var(--bg); overflow: hidden; }
+.reviews-track-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.reviews-track-wrap::before,
+.reviews-track-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.reviews-track-wrap::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+.reviews-track-wrap::after  { right: 0; background: linear-gradient(-90deg, var(--bg), transparent); }
+.reviews-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: reviews-scroll 40s linear infinite;
+}
+.reviews-track:hover { animation-play-state: paused; }
+@keyframes reviews-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.rev-card {
+  width: 320px;
+  flex-shrink: 0;
+  background: #f5f0e8;
+  border: 1px solid #e0d8c8;
+  border-radius: 12px;
+  padding: 26px 24px;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+  cursor: default;
+}
+[data-theme=dark] .rev-card {
+  background: #1a1f2e;
+  border-color: rgba(184,146,74,0.15);
+}
+.rev-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(184,146,74,.12);
+}
+.rev-stars { color: #d4a840; font-size: 14px; letter-spacing: 2px; margin-bottom: 12px; }
+.rev-body { font-size: 13px; color: var(--text2); line-height: 1.85; margin-bottom: 20px; }
+.rev-author { display: flex; align-items: center; gap: 12px; }
+.rev-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: linear-gradient(135deg, #1e3a5f, #b8924a);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 16px; color: #fff; flex-shrink: 0;
+}
+.rev-name { font-size: 13px; font-weight: 700; color: var(--text); }
+.rev-loc  { font-size: 11px; color: var(--text2); margin-top: 2px; }
